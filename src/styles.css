@@ -15,3 +15,12 @@ label {
     margin: 0 auto;
   }
 }
+
+.retira_margin_p_grid {
+  /*
+  TODO  Oliveira
+  Avaliar o motivo do p-grid da "Flex Grid" tem margin de 8 pois isso está ativando o scroll.
+  Acredito que isso não deva ser necessário.
+  */
+  margin: 0;
+}
