@@ -24,3 +24,7 @@
 .espaco-icones {
   margin: 0 .25em;
 }
+
+a:hover {
+  color: #fff;
+}
