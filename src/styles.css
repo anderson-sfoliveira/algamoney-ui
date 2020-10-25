@@ -24,3 +24,7 @@ label {
   */
   margin: 0;
 }
+
+.cadastro-acoes .ui-button {
+  margin-right: 5px;
+}
