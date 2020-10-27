@@ -1,6 +1,7 @@
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FormsModule } from '@angular/forms';
 
 import { InputTextModule } from 'primeng/inputtext';
 import { ButtonModule } from 'primeng/button';
@@ -17,6 +18,7 @@ import { LancamentosPesquisaComponent } from './lancamentos-pesquisa/lancamentos
 import { NavbarComponent } from './navbar/navbar.component';
 import { LancamentosCadastroComponent } from './lancamentos-cadastro/lancamentos-cadastro.component';
 import { FinanceiroCadastroComponent } from './financeiro-cadastro/financeiro-cadastro.component';
+import { MessageComponent } from './message/message.component';
 
 @NgModule({
   declarations: [
@@ -24,17 +26,20 @@ import { FinanceiroCadastroComponent } from './financeiro-cadastro/financeiro-ca
     LancamentosPesquisaComponent,
     NavbarComponent,
     LancamentosCadastroComponent,
-    FinanceiroCadastroComponent
+    FinanceiroCadastroComponent,
+    MessageComponent
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
+    FormsModule,
+
     InputTextModule,
     ButtonModule,
     TableModule,
     TooltipModule,
     InputTextareaModule,
     CalendarModule,
-    BrowserAnimationsModule,
     SelectButtonModule,
     DropdownModule,
     InputNumberModule

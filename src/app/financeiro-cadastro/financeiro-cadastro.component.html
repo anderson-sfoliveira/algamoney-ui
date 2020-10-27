@@ -1,5 +1,5 @@
 <div class="container">
-  <form>
+  <form autocomplete="off">
 
     <div class="p-grid retira_margin_p_grid">
 
@@ -22,8 +22,11 @@
       </div>
 
       <div class="p-col-12 p-md-9 p-fluid">
-        <label>Descrição</label>
-        <input type="text" pInputText>
+        <label>Descrição {{ descricao.errors | json }}</label>
+        <input pInputText type="text" name="descricao"
+          ngModel #descricao="ngModel" required minlength="5">
+        <app-message [control]="descricao" error="required" text="Informe uma descricao"></app-message>
+        <app-message [control]="descricao" error="minlength" text="Mínimo de  {{ descricao.errors?.minlength?.requiredLength }} caracteres"></app-message>
       </div>
 
       <div class="p-col-12 p-md-3 p-fluid">
