@@ -19,6 +19,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { LancamentosCadastroComponent } from './lancamentos-cadastro/lancamentos-cadastro.component';
 import { FinanceiroCadastroComponent } from './financeiro-cadastro/financeiro-cadastro.component';
 import { MessageComponent } from './message/message.component';
+import { CadastroFormaPagamentoComponent } from './cadastro-forma-pagamento/cadastro-forma-pagamento.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { MessageComponent } from './message/message.component';
     NavbarComponent,
     LancamentosCadastroComponent,
     FinanceiroCadastroComponent,
-    MessageComponent
+    MessageComponent,
+    CadastroFormaPagamentoComponent
   ],
   imports: [
     BrowserModule,
