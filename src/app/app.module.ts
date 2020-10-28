@@ -21,6 +21,7 @@ import { FinanceiroCadastroComponent } from './financeiro-cadastro/financeiro-ca
 import { MessageComponent } from './message/message.component';
 import { CadastroFormaPagamentoComponent } from './cadastro-forma-pagamento/cadastro-forma-pagamento.component';
 import { CadastroEmpresaComponent } from './cadastro-empresa/cadastro-empresa.component';
+import { LancamentoFinanceiroComponent } from './lancamento-financeiro/lancamento-financeiro.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { CadastroEmpresaComponent } from './cadastro-empresa/cadastro-empresa.co
     FinanceiroCadastroComponent,
     MessageComponent,
     CadastroFormaPagamentoComponent,
-    CadastroEmpresaComponent
+    CadastroEmpresaComponent,
+    LancamentoFinanceiroComponent
   ],
   imports: [
     BrowserModule,
