@@ -1,1 +1,25 @@
-<p>cadastro-forma-pagamento works!</p>
+<div class="container">
+  <form autocomplete="off" #formaPagamentoForm="ngForm">
+    <div class="p-grid retira_margin_p_grid">
+
+      <div class="p-col-12">
+        <h1>Nova Forma de Pagamento</h1>
+      </div>
+
+      <div class="p-col-12 p-fluid">
+        <label>Descrição</label>
+        <input type="text" pInputText name="descricao" ngModel required minlength="5" #vDescricao="ngModel"/>
+
+        <app-message [control]="vDescricao" error="required" text="Informe uma descricao"></app-message>
+        <app-message [control]="vDescricao" error="minlength" text="Mínimo de  {{ vDescricao.errors?.minlength?.requiredLength }} caracteres"></app-message>
+      </div>
+
+      <div class="p-col-12 cadastro-acoes">
+        <button pButton type="button" label="Salvar" [disabled]="!formaPagamentoForm.valid"></button>
+        <button pButton type="button" label="Novo" class="p-button-secondary"></button>
+        <a href="javascript:;">Voltar</a>
+      </div>
+
+    </div>
+  </form>
+</div>
