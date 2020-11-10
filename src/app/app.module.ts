@@ -18,7 +18,6 @@ import { InputMaskModule } from 'primeng/inputmask';
 import { AppComponent } from './app.component';
 import { LancamentosPesquisaComponent } from './lancamentos-pesquisa/lancamentos-pesquisa.component';
 import { NavbarComponent } from './navbar/navbar.component';
-import { LancamentosCadastroComponent } from './lancamentos-cadastro/lancamentos-cadastro.component';
 import { FinanceiroCadastroComponent } from './financeiro-cadastro/financeiro-cadastro.component';
 import { MessageComponent } from './message/message.component';
 import { CadastroFormaPagamentoComponent } from './cadastro-forma-pagamento/cadastro-forma-pagamento.component';
@@ -30,7 +29,6 @@ import { LancamentoFinanceiroComponent } from './lancamento-financeiro/lancament
     AppComponent,
     LancamentosPesquisaComponent,
     NavbarComponent,
-    LancamentosCadastroComponent,
     FinanceiroCadastroComponent,
     MessageComponent,
     CadastroFormaPagamentoComponent,
