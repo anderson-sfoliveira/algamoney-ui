@@ -22,6 +22,7 @@ import { MessageComponent } from './message/message.component';
 import { CadastroFormaPagamentoComponent } from './cadastro-forma-pagamento/cadastro-forma-pagamento.component';
 import { CadastroEmpresaComponent } from './cadastro-empresa/cadastro-empresa.component';
 import { LancamentosCadastroComponent } from './lancamentos-cadastro/lancamentos-cadastro.component';
+import { LancamentoFinanceiroComponent } from './lancamento-financeiro/lancamento-financeiro.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { LancamentosCadastroComponent } from './lancamentos-cadastro/lancamentos
     MessageComponent,
     CadastroFormaPagamentoComponent,
     CadastroEmpresaComponent,
-    LancamentosCadastroComponent
+    LancamentosCadastroComponent,
+    LancamentoFinanceiroComponent
   ],
   imports: [
     BrowserModule,
