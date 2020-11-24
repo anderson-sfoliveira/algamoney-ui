@@ -23,7 +23,7 @@ import { CadastroFormaPagamentoComponent } from './cadastro-forma-pagamento/cada
 import { CadastroEmpresaComponent } from './cadastro-empresa/cadastro-empresa.component';
 import { LancamentosCadastroComponent } from './lancamentos-cadastro/lancamentos-cadastro.component';
 import { LancamentoFinanceiroComponent } from './lancamento-financeiro/lancamento-financeiro.component';
-import { BotoesModule } from './botoes/botoes.module';
+import { NavegacaoModule } from './navegacao/navegacao.module';
 
 @NgModule({
   declarations: [
@@ -40,7 +40,7 @@ import { BotoesModule } from './botoes/botoes.module';
     BrowserModule,
     BrowserAnimationsModule,
     FormsModule,
-    BotoesModule,
+    NavegacaoModule,
 
     InputTextModule,
     ButtonModule,
