@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
 import { InputTextModule } from 'primeng/inputtext';
 import { ButtonModule } from 'primeng/button';
@@ -15,29 +16,19 @@ import { InputNumberModule } from 'primeng/inputnumber';
 import { CheckboxModule } from 'primeng/checkbox';
 import { InputMaskModule } from 'primeng/inputmask';
 
-import { AppComponent } from './app.component';
-import { NavbarComponent } from './navbar/navbar.component';
-import { MessageComponent } from './message/message.component';
-import { CadastroFormaPagamentoComponent } from './cadastro-forma-pagamento/cadastro-forma-pagamento.component';
-import { CadastroEmpresaComponent } from './cadastro-empresa/cadastro-empresa.component';
-import { LancamentoFinanceiroComponent } from './lancamento-financeiro/lancamento-financeiro.component';
-
-import { NavegacaoModule } from './navegacao/navegacao.module';
-import { LancamentosModule } from './lancamentos/lancamentos.module';
+import { LancamentosPesquisaComponent } from './lancamentos-pesquisa/lancamentos-pesquisa.component';
+import { LancamentosCadastroComponent } from './lancamentos-cadastro/lancamentos-cadastro.component';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    NavbarComponent,
-    MessageComponent,
-    CadastroFormaPagamentoComponent,
-    CadastroEmpresaComponent,
-    LancamentoFinanceiroComponent
+    LancamentosPesquisaComponent,
+    LancamentosCadastroComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     FormsModule,
+    CommonModule,
 
     InputTextModule,
     ButtonModule,
@@ -49,12 +40,11 @@ import { LancamentosModule } from './lancamentos/lancamentos.module';
     DropdownModule,
     InputNumberModule,
     CheckboxModule,
-    InputMaskModule,
-
-    NavegacaoModule,
-    LancamentosModule
+    InputMaskModule
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  exports: [
+    LancamentosPesquisaComponent,
+    LancamentosCadastroComponent
+  ]
 })
-export class AppModule { }
+export class LancamentosModule { }

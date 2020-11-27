@@ -15,22 +15,22 @@
         <label>Vencimento</label>
         <p-calendar name="vencimento" dateFormat="dd/mm/yy" ngModel #vencimento="ngModel" required></p-calendar>
 
-        <app-message [control]="vencimento" error="required" text="Informe a data de vencimento"></app-message>
+        <!-- <app-message [control]="vencimento" error="required" text="Informe a data de vencimento"></app-message> -->
       </div>
 
       <div class="p-col-6 p-md-3 p-fluid">
         <label>{{ tipo.value === 'RECEITA' ? 'Recebimento' : 'Pagamento' }}</label>
         <p-calendar name="recebimento" dateFormat="dd/mm/yy" ngModel #recebimento="ngModel" required></p-calendar>
 
-        <app-message [control]="recebimento" error="required" text="Informe a data de {{ tipo.value === 'RECEITA' ? 'recebimento' : 'pagamento' }}"></app-message>
+        <!-- <app-message [control]="recebimento" error="required" text="Informe a data de {{ tipo.value === 'RECEITA' ? 'recebimento' : 'pagamento' }}"></app-message> -->
       </div>
 
       <div class="p-col-12 p-md-9 p-fluid">
         <label>Descrição {{ descricao.errors | json }}</label>
         <input pInputText type="text" name="descricao" ngModel #descricao="ngModel" required minlength="5">
 
-        <app-message [control]="descricao" error="required" text="Informe uma descricao"></app-message>
-        <app-message [control]="descricao" error="minlength" text="Mínimo de  {{ descricao.errors?.minlength?.requiredLength }} caracteres"></app-message>
+        <!-- <app-message [control]="descricao" error="required" text="Informe uma descricao"></app-message> -->
+        <!-- <app-message [control]="descricao" error="minlength" text="Mínimo de  {{ descricao.errors?.minlength?.requiredLength }} caracteres"></app-message> -->
       </div>
 
       <div class="p-col-12 p-md-3 p-fluid">
