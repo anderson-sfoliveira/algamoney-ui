@@ -19,11 +19,11 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { MessageComponent } from './message/message.component';
 import { CadastroFormaPagamentoComponent } from './cadastro-forma-pagamento/cadastro-forma-pagamento.component';
-import { CadastroEmpresaComponent } from './cadastro-empresa/cadastro-empresa.component';
 import { LancamentoFinanceiroComponent } from './lancamento-financeiro/lancamento-financeiro.component';
 
 import { NavegacaoModule } from './navegacao/navegacao.module';
 import { LancamentosModule } from './lancamentos/lancamentos.module';
+import { EmpresaModule } from './empresa/empresa.module';
 
 @NgModule({
   declarations: [
@@ -31,7 +31,6 @@ import { LancamentosModule } from './lancamentos/lancamentos.module';
     NavbarComponent,
     MessageComponent,
     CadastroFormaPagamentoComponent,
-    CadastroEmpresaComponent,
     LancamentoFinanceiroComponent
   ],
   imports: [
@@ -52,7 +51,8 @@ import { LancamentosModule } from './lancamentos/lancamentos.module';
     InputMaskModule,
 
     NavegacaoModule,
-    LancamentosModule
+    LancamentosModule,
+    EmpresaModule
   ],
   providers: [],
   bootstrap: [AppComponent]
