@@ -4,14 +4,9 @@ import { FormsModule } from '@angular/forms';
 
 import { InputTextModule } from 'primeng/inputtext';
 import { ButtonModule } from 'primeng/button';
-import { TableModule } from 'primeng/table';
-import { TooltipModule } from 'primeng/tooltip';
 import { InputTextareaModule } from 'primeng/inputtextarea';
 import { CalendarModule } from 'primeng/calendar';
 import { SelectButtonModule } from 'primeng/selectbutton';
-import { DropdownModule } from 'primeng/dropdown';
-import { InputNumberModule } from 'primeng/inputnumber';
-import { CheckboxModule } from 'primeng/checkbox';
 import { InputMaskModule } from 'primeng/inputmask';
 
 import { CadastroEmpresaComponent } from './cadastro-empresa/cadastro-empresa.component';
@@ -26,15 +21,10 @@ import { CadastroEmpresaComponent } from './cadastro-empresa/cadastro-empresa.co
 
     InputTextModule,
     ButtonModule,
-    TableModule,
-    TooltipModule,
     InputTextareaModule,
     CalendarModule,
     SelectButtonModule,
-    DropdownModule,
-    InputNumberModule,
-    CheckboxModule,
-    InputMaskModule,
+    InputMaskModule
   ],
   exports: [
     CadastroEmpresaComponent
