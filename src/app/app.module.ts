@@ -18,19 +18,18 @@ import { InputMaskModule } from 'primeng/inputmask';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { MessageComponent } from './message/message.component';
-import { CadastroFormaPagamentoComponent } from './cadastro-forma-pagamento/cadastro-forma-pagamento.component';
 
 import { NavegacaoModule } from './navegacao/navegacao.module';
 import { LancamentosModule } from './lancamentos/lancamentos.module';
 import { EmpresaModule } from './empresa/empresa.module';
 import { FinanceiroModule } from './financeiro/financeiro.module';
+import { FormaPagamentoModule } from './forma-pagamento/forma-pagamento.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
-    MessageComponent,
-    CadastroFormaPagamentoComponent
+    MessageComponent
   ],
   imports: [
     BrowserModule,
@@ -52,7 +51,8 @@ import { FinanceiroModule } from './financeiro/financeiro.module';
     NavegacaoModule,
     LancamentosModule,
     EmpresaModule,
-    FinanceiroModule
+    FinanceiroModule,
+    FormaPagamentoModule
   ],
   providers: [],
   bootstrap: [AppComponent]
