@@ -19,19 +19,18 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { MessageComponent } from './message/message.component';
 import { CadastroFormaPagamentoComponent } from './cadastro-forma-pagamento/cadastro-forma-pagamento.component';
-import { LancamentoFinanceiroComponent } from './lancamento-financeiro/lancamento-financeiro.component';
 
 import { NavegacaoModule } from './navegacao/navegacao.module';
 import { LancamentosModule } from './lancamentos/lancamentos.module';
 import { EmpresaModule } from './empresa/empresa.module';
+import { FinanceiroModule } from './financeiro/financeiro.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     MessageComponent,
-    CadastroFormaPagamentoComponent,
-    LancamentoFinanceiroComponent
+    CadastroFormaPagamentoComponent
   ],
   imports: [
     BrowserModule,
@@ -52,7 +51,8 @@ import { EmpresaModule } from './empresa/empresa.module';
 
     NavegacaoModule,
     LancamentosModule,
-    EmpresaModule
+    EmpresaModule,
+    FinanceiroModule
   ],
   providers: [],
   bootstrap: [AppComponent]
