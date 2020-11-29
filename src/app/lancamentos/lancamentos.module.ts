@@ -19,6 +19,8 @@ import { InputMaskModule } from 'primeng/inputmask';
 import { LancamentosPesquisaComponent } from './lancamentos-pesquisa/lancamentos-pesquisa.component';
 import { LancamentosCadastroComponent } from './lancamentos-cadastro/lancamentos-cadastro.component';
 
+import { SharedModule } from '../shared/shared.module';
+
 @NgModule({
   declarations: [
     LancamentosPesquisaComponent,
@@ -40,7 +42,9 @@ import { LancamentosCadastroComponent } from './lancamentos-cadastro/lancamentos
     DropdownModule,
     InputNumberModule,
     CheckboxModule,
-    InputMaskModule
+    InputMaskModule,
+
+    SharedModule
   ],
   exports: [
     LancamentosPesquisaComponent,

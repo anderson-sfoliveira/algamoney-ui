@@ -7,6 +7,8 @@ import { ButtonModule } from 'primeng/button';
 
 import { CadastroFormaPagamentoComponent } from './cadastro-forma-pagamento/cadastro-forma-pagamento.component';
 
+import { SharedModule } from '../shared/shared.module';
+
 @NgModule({
   declarations: [
     CadastroFormaPagamentoComponent
@@ -16,7 +18,9 @@ import { CadastroFormaPagamentoComponent } from './cadastro-forma-pagamento/cada
     FormsModule,
 
     InputTextModule,
-    ButtonModule
+    ButtonModule,
+
+    SharedModule
   ],
   exports: [
     CadastroFormaPagamentoComponent

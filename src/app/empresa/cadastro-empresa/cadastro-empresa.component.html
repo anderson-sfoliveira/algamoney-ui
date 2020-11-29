@@ -9,19 +9,17 @@
       <div class="p-col-12 p-fluid">
         <label>Razão Social</label>
         <input type="text" pInputText name="razao" ngModel required minlength="5" #vRazao="ngModel"/>
-<!--
+
         <app-message [control]="vRazao" error="required" text="Informe uma razão social"></app-message>
         <app-message [control]="vRazao" error="minlength" text="Mínimo de  {{ vRazao.errors?.minlength?.requiredLength }} caracteres"></app-message>
--->
       </div>
 
       <div class="p-col-12 p-fluid">
         <label>Fantasia</label>
         <input type="text" pInputText name="fantasia" ngModel required minlength="5" #vFantasia="ngModel"/>
-<!--
+
         <app-message [control]="vFantasia" error="required" text="Informe uma fantasia"></app-message>
         <app-message [control]="vFantasia" error="minlength" text="Mínimo de  {{ vFantasia.errors?.minlength?.requiredLength }} caracteres"></app-message>
--->
       </div>
 
       <div class="p-col-12 p-md-6 p-lg-3 p-fluid">
@@ -33,9 +31,8 @@
         <label>{{ vTipo.value === 'FISICA' ? 'C.P.F.' : 'C.N.P.J.' }}</label>
         <p-inputMask name="cpf" mask="{{ vTipo.value === 'FISICA' ? '999.999.999-99' : '99.999.999/9999-99' }}"
           placeholder="{{ vTipo.value === 'FISICA' ? '   .   .   -  ' : '  .   .   /    -  ' }}" ngModel required #vCPF="ngModel"></p-inputMask>
-<!--
+
         <app-message [control]="vCPF" error="required" text="Informe o {{ vTipo.value === 'FISICA' ? 'C.P.F.' : 'C.N.P.J.' }}"></app-message>
--->
       </div>
 
       <div class="p-col-6 p-lg-3 p-fluid">
@@ -46,18 +43,16 @@
       <div class="p-col-6 p-lg-3 p-fluid">
         <label>Nascimento</label>
         <p-calendar name="nascimento" ngModel required dateFormat="dd/mm/yy" showIcon="true" #vNascimento="ngModel"></p-calendar>
-<!--
+
         <app-message [control]="vNascimento" error="required" text="Informe a data de nascimento"></app-message>
--->
       </div>
 
       <div class="p-col-12 p-lg-9 p-fluid">
         <label>E-mail</label>
         <input type="text" pInputText name="email" ngModel required email #vEmail="ngModel"/>
-<!--
+
         <app-message [control]="vEmail" error="required" text="Informe um e-mail"></app-message>
         <app-message [control]="vEmail" error="email" text="Informe um e-mail válido"></app-message>
--->
       </div>
 
       <div class="p-col-12 p-lg-3 p-fluid">

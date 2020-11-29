@@ -1,25 +1,24 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { MenuComponent } from './menu/menu.component';
-import { LinhaComponent } from './linha/linha.component';
-import { NavbarComponent } from './navbar/navbar.component';
+import { ButtonModule } from 'primeng/button';
 
-import { BotoesModule } from '../botoes/botoes.module';
+import { BotaoAlertaComponent } from './botao-alerta/botao-alerta.component';
+import { LinhaComponent } from './linha/linha.component';
+import { MenuComponent } from './menu/menu.component';
 
 @NgModule({
   declarations: [
-    MenuComponent,
+    BotaoAlertaComponent,
     LinhaComponent,
-    NavbarComponent
+    MenuComponent
   ],
   imports: [
     CommonModule,
-    BotoesModule
+    ButtonModule
   ],
   exports: [
-    MenuComponent,
-    NavbarComponent
+    MenuComponent
   ]
 })
 export class NavegacaoModule { }

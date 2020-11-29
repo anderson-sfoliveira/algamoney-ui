@@ -11,6 +11,8 @@ import { InputMaskModule } from 'primeng/inputmask';
 
 import { CadastroEmpresaComponent } from './cadastro-empresa/cadastro-empresa.component';
 
+import { SharedModule } from '../shared/shared.module';
+
 @NgModule({
   declarations: [
     CadastroEmpresaComponent
@@ -24,7 +26,9 @@ import { CadastroEmpresaComponent } from './cadastro-empresa/cadastro-empresa.co
     InputTextareaModule,
     CalendarModule,
     SelectButtonModule,
-    InputMaskModule
+    InputMaskModule,
+
+    SharedModule
   ],
   exports: [
     CadastroEmpresaComponent
