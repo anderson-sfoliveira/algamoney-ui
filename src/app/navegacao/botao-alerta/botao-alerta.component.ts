@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { PrimeNGConfig } from 'primeng/api';
 
 @Component({
   selector: 'app-botao-alerta',
@@ -9,9 +10,10 @@ export class BotaoAlertaComponent implements OnInit {
 
   @Input() label;
 
-  constructor() { }
+  constructor(private primengConfig: PrimeNGConfig) { }
 
   ngOnInit(): void {
+    this.primengConfig.ripple = true;
   }
 
 }
