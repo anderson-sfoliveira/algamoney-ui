@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 
@@ -10,6 +11,7 @@ import { EmpresaModule } from './empresa/empresa.module';
 import { FinanceiroModule } from './financeiro/financeiro.module';
 import { FormaPagamentoModule } from './forma-pagamento/forma-pagamento.module';
 import { CoreModule } from './core/core.module';
+import { LancamentosService } from './lancamentos/lancamentos.service';
 
 @NgModule({
   declarations: [
@@ -18,6 +20,7 @@ import { CoreModule } from './core/core.module';
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    HttpClientModule,
 
     NavegacaoModule,
     LancamentosModule,
@@ -26,7 +29,7 @@ import { CoreModule } from './core/core.module';
     FormaPagamentoModule,
     CoreModule
   ],
-  providers: [],
+  providers: [LancamentosService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
