@@ -17,6 +17,9 @@ export class LancamentosService {
     return this.http.get(`${this.lancamentosURL}?resumo`, { headers })
       .toPromise()
       .then(response => response['content']);
+//      .then(response => {
+//        console.log(response);
+//      });
 //      .catch(erro => {
 //        return Promise.reject(`Erro ao consultar cidades`);
 //      })
