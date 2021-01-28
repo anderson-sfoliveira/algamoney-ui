@@ -31,6 +31,7 @@ export class LancamentosService {
       params = params.set('descricao', filtro.descricao);
     }
 
+    // A biblioteca "moment" é usada para converter a data do “calendar” para string para ser usado o recurso de filtro.
     if (filtro.dataVencimentoInicio) {
       params = params.set('dataVencimentoDe', moment(filtro.dataVencimentoInicio).format('YYYY-MM-DD'));
     }
