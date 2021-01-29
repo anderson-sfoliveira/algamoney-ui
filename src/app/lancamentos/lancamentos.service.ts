@@ -4,10 +4,12 @@ import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import * as moment from 'moment';
 
 // essa interface é criada para criar um "contrato" para definir quais serão os campos do filtro.
-export interface LancamentoFiltro {
+export class LancamentoFiltro {
   descricao: string;
   dataVencimentoInicio: Date;
   dataVencimentoFim: Date;
+  pagina = 0;
+  itensPorPagina = 5;
 }
 
 @Injectable({
@@ -24,6 +26,9 @@ export class LancamentosService {
     .append('Authorization', 'Basic YW5kZXJzb24uc2ZvbGl2ZWlyYUBnbWFpbC5jb206YWRtaW4=');
 
     let params = new HttpParams();
+
+    params = params.set('page', filtro.pagina.toString());
+    params = params.set('size', filtro.itensPorPagina.toString());
 
     // se existir a propriedade "descricao" no objeto "filtro" entra no if.
     if (filtro.descricao) {
@@ -42,12 +47,13 @@ export class LancamentosService {
 
     return this.http.get(`${this.lancamentosURL}?resumo`, { headers, params })
       .toPromise()
-      .then(response => response['content']);
-//      .then(response => {
-//        console.log(response);
-//      });
-//      .catch(erro => {
-//        return Promise.reject(`Erro ao consultar cidades`);
-//      })
+      .then(response => {
+        const lancamentos = response['content']
+        const resultado = {
+          lancamentos,
+          total: response['totalElements']
+        }
+        return resultado;
+      });
   }
 }
