@@ -12,6 +12,7 @@ import { FinanceiroModule } from './financeiro/financeiro.module';
 import { FormaPagamentoModule } from './forma-pagamento/forma-pagamento.module';
 import { CoreModule } from './core/core.module';
 import { LancamentosService } from './lancamentos/lancamentos.service';
+import { PessoasModule } from './pessoas/pessoas.module';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { LancamentosService } from './lancamentos/lancamentos.service';
     EmpresaModule,
     FinanceiroModule,
     FormaPagamentoModule,
-    CoreModule
+    CoreModule,
+    PessoasModule
   ],
   providers: [LancamentosService],
   bootstrap: [AppComponent]
