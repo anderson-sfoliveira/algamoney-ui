@@ -23,7 +23,7 @@ export class LancamentosService {
 
   pesquisar(filtro: LancamentoFiltro): Promise<any> {
     const headers = new HttpHeaders()
-    .append('Authorization', 'Basic YW5kZXJzb24uc2ZvbGl2ZWlyYUBnbWFpbC5jb206YWRtaW4=');
+    .append('Authorization', 'Basic YW5kZXJzb24uc2ZvbGl2ZWlyYUBnbWFpbC5jb206YW5kZXJzb24uc2ZvbGl2ZWlyYUBnbWFpbC5jb20=');
 
     let params = new HttpParams();
 
