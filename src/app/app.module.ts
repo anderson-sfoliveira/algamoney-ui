@@ -13,6 +13,8 @@ import { FormaPagamentoModule } from './forma-pagamento/forma-pagamento.module';
 import { CoreModule } from './core/core.module';
 import { LancamentosService } from './lancamentos/lancamentos.service';
 import { PessoasModule } from './pessoas/pessoas.module';
+import { CategoriasModule } from './categorias/categorias.module';
+import { CategoriasService } from './categorias/categorias.service';
 
 @NgModule({
   declarations: [
@@ -29,9 +31,13 @@ import { PessoasModule } from './pessoas/pessoas.module';
     FinanceiroModule,
     FormaPagamentoModule,
     CoreModule,
-    PessoasModule
+    PessoasModule,
+    CategoriasModule
   ],
-  providers: [LancamentosService],
+  providers: [
+    LancamentosService,
+    CategoriasService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
