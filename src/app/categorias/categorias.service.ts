@@ -43,4 +43,20 @@ export class CategoriasService {
         return resultado;
       });
   }
+
+  listarTodos(): Promise<any> {
+    const headers = new HttpHeaders()
+      .append('Authorization', 'Basic YWRtbTRhZG1pbmlzdHJhZG9yOjEyMzQ1Ng==');
+
+    return this.http.get(`${this.categoriasURL}`, { headers })
+      .toPromise()
+      .then(response => {
+        const categorias = response['content']
+        const resultado = {
+          categorias,
+          total: response['totalElements']
+        }
+        return resultado;
+      });
+  }
 }
