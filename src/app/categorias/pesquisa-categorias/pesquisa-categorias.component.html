@@ -1,1 +1,52 @@
-<p>pesquisa-categorias works!</p>
+<div class="container">
+    <form autocomplete="off" (ngSubmit)="pesquisar()">
+        <div class="p-grid retira_margin_p_grid">
+            <div class="p-col-12">
+                <h1>Categorias</h1>
+            </div>
+            <div class="p-col-12 p-fluid">
+                <label>Descrição</label>
+                <input type="text" pInputText name="descricao" [(ngModel)]="filtro.descricao" />
+            </div>
+            <div class="p-col-12">
+                <button pButton type="submit" label="Pesquisar"></button>
+            </div>
+        </div>
+    </form>
+
+    <div class="p-grid retira_margin_p_grid">
+        <div class="p-col-12">
+            <p-table [value]="categorias" [responsive]="true" [paginator]="true" [rows]="filtro.itensPorPagina"
+                [lazy]="true" [totalRecords]="totalRegistros" (onLazyLoad)="aoMudarPagina($event)">
+                <ng-template pTemplate="emptymessage">
+                    <tr>
+                        <td colspan="2">
+                            Nenhuma categoria cadastrada
+                        </td>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="header">
+                    <tr>
+                        <th>Descricao</th>
+                        <th class="col-acoes-header"></th>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-cat>
+                    <tr>
+                        <td><span class="p-column-title">Descricao</span>{{cat.descricao}}</td>
+                        <td class="col-acoes-content">
+                            <a pButton class="espaco-icones" icon="pi pi-pencil" pTooltip="Editar"
+                                tooltipPosition="top"></a>
+                            <button pButton class="espaco-icones" icon="pi pi-trash" pTooltip="Excluir"
+                                tooltipPosition="top"></button>
+                        </td>
+                    </tr>
+                </ng-template>
+            </p-table>
+        </div>
+
+        <div class="p-col-12">
+            <a pButton label="Nova Categoria"></a>
+        </div>
+    </div>
+</div>
