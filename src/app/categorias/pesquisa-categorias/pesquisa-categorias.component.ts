@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { CategoriasService, CategoriaFiltro } from '../categorias.service';
-import { LazyLoadEvent } from 'primeng/api';
+import { LazyLoadEvent, MessageService } from 'primeng/api';
 
 @Component({
   selector: 'app-pesquisa-categorias',
@@ -14,7 +14,10 @@ export class PesquisaCategoriasComponent implements OnInit {
   categorias = [];
   @ViewChild('tabela') grid;
 
-  constructor(private categoriasService: CategoriasService) { }
+  constructor(
+    private categoriasService: CategoriasService,
+    private messageService: MessageService
+  ) { }
 
   ngOnInit() {
 //    this.pesquisar();
@@ -39,6 +42,8 @@ export class PesquisaCategoriasComponent implements OnInit {
     this.categoriasService.excluir(categoria.categoriaId)
       .then(() => {
         this.grid.clear();
+
+        this.messageService.add({ severity: 'success', detail: 'Categoria excluída com sucesso!' });
       })
   }
 }

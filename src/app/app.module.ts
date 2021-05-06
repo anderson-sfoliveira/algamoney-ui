@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
+import { ToastModule } from 'primeng/toast';
 
 import { AppComponent } from './app.component';
 
@@ -17,6 +18,7 @@ import { CategoriasModule } from './categorias/categorias.module';
 import { CategoriasService } from './categorias/categorias.service';
 import { ProdutosService } from './produtos/produtos.service';
 import { ProdutosModule } from './produtos/produtos.module';
+import { MessageService } from 'primeng/api';
 
 @NgModule({
   declarations: [
@@ -26,6 +28,7 @@ import { ProdutosModule } from './produtos/produtos.module';
     BrowserModule,
     BrowserAnimationsModule,
     HttpClientModule,
+    ToastModule,
 
     NavegacaoModule,
     LancamentosModule,
@@ -40,7 +43,8 @@ import { ProdutosModule } from './produtos/produtos.module';
   providers: [
     LancamentosService,
     CategoriasService,
-    ProdutosService
+    ProdutosService,
+    MessageService
   ],
   bootstrap: [AppComponent]
 })

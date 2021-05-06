@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ProdutosService, ProdutoFiltro } from '../produtos.service';
-import { LazyLoadEvent } from 'primeng/api';
+import { LazyLoadEvent, MessageService } from 'primeng/api';
 
 @Component({
   selector: 'app-pesquisa-produtos',
@@ -14,7 +14,10 @@ export class PesquisaProdutosComponent implements OnInit {
   produtos = [];
   @ViewChild('tabela') grid;
 
-  constructor(private produtosService: ProdutosService) { }
+  constructor(
+    private produtosService: ProdutosService,
+    private messageService: MessageService
+  ) { }
 
   ngOnInit() {
 //    this.pesquisar();
@@ -39,6 +42,8 @@ export class PesquisaProdutosComponent implements OnInit {
     this.produtosService.excluir(produto.produtoId)
       .then(() => {
         this.grid.clear();
+        
+        this.messageService.add({ severity: 'success', detail: 'Produto excluído com sucesso!' });
       })
   }
 }
