@@ -15,6 +15,8 @@ import { LancamentosService } from './lancamentos/lancamentos.service';
 import { PessoasModule } from './pessoas/pessoas.module';
 import { CategoriasModule } from './categorias/categorias.module';
 import { CategoriasService } from './categorias/categorias.service';
+import { ProdutosService } from './produtos/produtos.service';
+import { ProdutosModule } from './produtos/produtos.module';
 
 @NgModule({
   declarations: [
@@ -32,11 +34,13 @@ import { CategoriasService } from './categorias/categorias.service';
     FormaPagamentoModule,
     CoreModule,
     PessoasModule,
-    CategoriasModule
+    CategoriasModule,
+    ProdutosModule
   ],
   providers: [
     LancamentosService,
-    CategoriasService
+    CategoriasService,
+    ProdutosService
   ],
   bootstrap: [AppComponent]
 })
