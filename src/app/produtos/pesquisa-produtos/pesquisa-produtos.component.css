@@ -1,31 +1,30 @@
 .col-valor-header {
-    width: 120px;
-  }
-  .col-valor-content {
-    text-align: right;
-  }
-  
-  .col-data-header {
-    width: 110px;
-  }
-  
-  .col-data-content {
-    text-align: center;
-  }
-  
-  .col-acoes-header {
-    width: 130px;
-  }
-  
-  .col-acoes-content {
-    text-align: center;
-  }
-  
-  .espaco-icones {
-    margin: 0 .25em;
-  }
-  
-  a:hover {
-    color: #fff;
-  }
-  
+  width: 120px;
+}
+.col-valor-content {
+  text-align: right;
+}
+
+.col-data-header {
+  width: 110px;
+}
+
+.col-data-content {
+  text-align: center;
+}
+
+.col-acoes-header {
+  width: 130px;
+}
+
+.col-acoes-content {
+  text-align: center;
+}
+
+.espaco-icones {
+  margin: 0.25em;
+}
+
+a:hover {
+  color: #fff;
+}
