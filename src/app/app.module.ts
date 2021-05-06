@@ -1,7 +1,9 @@
-import { NgModule } from '@angular/core';
+import { LOCALE_ID, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
+import { registerLocaleData } from '@angular/common';
+import localePt from '@angular/common/locales/pt';
 
 import { ToastModule } from 'primeng/toast';
 import { MessageService } from 'primeng/api';
@@ -22,6 +24,8 @@ import { CategoriasModule } from './categorias/categorias.module';
 import { CategoriasService } from './categorias/categorias.service';
 import { ProdutosService } from './produtos/produtos.service';
 import { ProdutosModule } from './produtos/produtos.module';
+
+registerLocaleData(localePt);
 
 @NgModule({
   declarations: [
@@ -50,7 +54,9 @@ import { ProdutosModule } from './produtos/produtos.module';
     CategoriasService,
     ProdutosService,
     MessageService,
-    ConfirmationService
+    ConfirmationService,
+
+    {provide: LOCALE_ID, useValue: 'pt-BR'}
   ],
   bootstrap: [AppComponent]
 })
