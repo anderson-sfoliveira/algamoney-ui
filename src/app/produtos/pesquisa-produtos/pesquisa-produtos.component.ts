@@ -1,6 +1,9 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { ProdutosService, ProdutoFiltro } from '../produtos.service';
+
 import { ConfirmationService, LazyLoadEvent, MessageService } from 'primeng/api';
+
+import { ProdutosService, ProdutoFiltro } from '../produtos.service';
+import { ErrorHandlerService } from 'src/app/core/error-handler.service';
 
 @Component({
   selector: 'app-pesquisa-produtos',
@@ -17,7 +20,8 @@ export class PesquisaProdutosComponent implements OnInit {
   constructor(
     private produtosService: ProdutosService,
     private messageService: MessageService,
-    private confirmationService: ConfirmationService
+    private confirmationService: ConfirmationService,
+    private errorHandlerService: ErrorHandlerService
   ) { }
 
   ngOnInit() {
@@ -31,7 +35,8 @@ export class PesquisaProdutosComponent implements OnInit {
       .then(resultado => {
         this.totalRegistros = resultado.total;
         this.produtos = resultado.produtos;
-      });
+      })
+      .catch(erro => this.errorHandlerService.handle(erro));
   }
 
   aoMudarPagina(event: LazyLoadEvent) {
@@ -53,7 +58,8 @@ export class PesquisaProdutosComponent implements OnInit {
       .then(() => {
         this.grid.clear(); // recarrega as informações da grid
         
-        this.messageService.add({ severity: 'success', detail: 'Produto excluído com sucesso!' });
+        this.messageService.add({ severity: 'success', summary: 'BRL Sistemas', detail: 'Produto excluído com sucesso!' });
       })
+      .catch(erro => this.errorHandlerService.handle(erro));
   }
 }

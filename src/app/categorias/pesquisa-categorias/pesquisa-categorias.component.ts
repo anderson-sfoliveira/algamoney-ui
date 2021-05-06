@@ -1,6 +1,9 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { CategoriasService, CategoriaFiltro } from '../categorias.service';
+
 import { ConfirmationService, LazyLoadEvent, MessageService } from 'primeng/api';
+
+import { CategoriasService, CategoriaFiltro } from '../categorias.service';
+import { ErrorHandlerService } from 'src/app/core/error-handler.service';
 
 @Component({
   selector: 'app-pesquisa-categorias',
@@ -17,7 +20,8 @@ export class PesquisaCategoriasComponent implements OnInit {
   constructor(
     private categoriasService: CategoriasService,
     private messageService: MessageService,
-    private confirmationService: ConfirmationService
+    private confirmationService: ConfirmationService,
+    private errorHandlerService: ErrorHandlerService
   ) { }
 
   ngOnInit() {
@@ -31,7 +35,8 @@ export class PesquisaCategoriasComponent implements OnInit {
       .then(resultado => {
         this.totalRegistros = resultado.total;
         this.categorias = resultado.categorias;
-      });
+      })
+      .catch(erro => this.errorHandlerService.handle(erro));
   }
 
   aoMudarPagina(event: LazyLoadEvent) {
@@ -53,7 +58,8 @@ export class PesquisaCategoriasComponent implements OnInit {
       .then(() => {
         this.grid.clear(); // recarrega as informações da grid
 
-        this.messageService.add({ severity: 'success', detail: 'Categoria excluída com sucesso!' });
+        this.messageService.add({ severity: 'success', summary: 'BRL Sistemas', detail: 'Categoria excluída com sucesso!' });
       })
+      .catch(erro => this.errorHandlerService.handle(erro));
   }
 }
