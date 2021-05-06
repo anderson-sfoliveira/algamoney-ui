@@ -50,13 +50,6 @@ export class CategoriasService {
 
     return this.http.get(`${this.categoriasURL}`, { headers })
       .toPromise()
-      .then(response => {
-        const categorias = response['content']
-        const resultado = {
-          categorias,
-          total: response['totalElements']
-        }
-        return resultado;
-      });
+      .then(response => response['content']);
   }
 }
