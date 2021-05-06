@@ -2,7 +2,11 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
+
 import { ToastModule } from 'primeng/toast';
+import { MessageService } from 'primeng/api';
+import { ConfirmDialogModule } from 'primeng/confirmdialog';
+import { ConfirmationService } from 'primeng/api';
 
 import { AppComponent } from './app.component';
 
@@ -18,7 +22,6 @@ import { CategoriasModule } from './categorias/categorias.module';
 import { CategoriasService } from './categorias/categorias.service';
 import { ProdutosService } from './produtos/produtos.service';
 import { ProdutosModule } from './produtos/produtos.module';
-import { MessageService } from 'primeng/api';
 
 @NgModule({
   declarations: [
@@ -28,7 +31,9 @@ import { MessageService } from 'primeng/api';
     BrowserModule,
     BrowserAnimationsModule,
     HttpClientModule,
+
     ToastModule,
+    ConfirmDialogModule,
 
     NavegacaoModule,
     LancamentosModule,
@@ -44,7 +49,8 @@ import { MessageService } from 'primeng/api';
     LancamentosService,
     CategoriasService,
     ProdutosService,
-    MessageService
+    MessageService,
+    ConfirmationService
   ],
   bootstrap: [AppComponent]
 })

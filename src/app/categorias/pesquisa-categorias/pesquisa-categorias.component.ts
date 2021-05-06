@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { CategoriasService, CategoriaFiltro } from '../categorias.service';
-import { LazyLoadEvent, MessageService } from 'primeng/api';
+import { ConfirmationService, LazyLoadEvent, MessageService } from 'primeng/api';
 
 @Component({
   selector: 'app-pesquisa-categorias',
@@ -16,11 +16,12 @@ export class PesquisaCategoriasComponent implements OnInit {
 
   constructor(
     private categoriasService: CategoriasService,
-    private messageService: MessageService
+    private messageService: MessageService,
+    private confirmationService: ConfirmationService
   ) { }
 
   ngOnInit() {
-//    this.pesquisar();
+    //    this.pesquisar();
   }
 
   pesquisar(pagina = 0) {
@@ -38,10 +39,19 @@ export class PesquisaCategoriasComponent implements OnInit {
     this.pesquisar(pagina);
   }
 
+  confirmaExclusao(categoria: any) {
+    this.confirmationService.confirm({
+      message: 'Confirma exclusão da categoria?',
+      accept: () => {
+        this.excluir(categoria);
+      }
+    });
+  }
+
   excluir(categoria: any) {
-    this.categoriasService.excluir(categoria.categoriaId)
+      this.categoriasService.excluir(categoria.categoriaId)
       .then(() => {
-        this.grid.clear();
+        this.grid.clear(); // recarrega as informações da grid
 
         this.messageService.add({ severity: 'success', detail: 'Categoria excluída com sucesso!' });
       })
