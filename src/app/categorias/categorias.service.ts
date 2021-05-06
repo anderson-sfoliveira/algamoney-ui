@@ -52,4 +52,13 @@ export class CategoriasService {
       .toPromise()
       .then(response => response['content']);
   }
+
+  excluir(id: number): Promise<void> {
+    const headers = new HttpHeaders()
+      .append('Authorization', 'Basic YWRtbTRhZG1pbmlzdHJhZG9yOjEyMzQ1Ng==');
+
+      return this.http.delete(`${this.categoriasURL}/${id}`, { headers })
+      .toPromise()
+      .then(() => null);
+  }
 }

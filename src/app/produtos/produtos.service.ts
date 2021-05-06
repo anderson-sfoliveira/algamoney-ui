@@ -43,4 +43,13 @@ export class ProdutosService {
         return resultado;
       });
   }
+
+  excluir(id: number): Promise<void> {
+    const headers = new HttpHeaders()
+      .append('Authorization', 'Basic YWRtbTRhZG1pbmlzdHJhZG9yOjEyMzQ1Ng==');
+
+      return this.http.delete(`${this.produtosURL}/${id}`, { headers })
+      .toPromise()
+      .then(() => null);
+  }
 }

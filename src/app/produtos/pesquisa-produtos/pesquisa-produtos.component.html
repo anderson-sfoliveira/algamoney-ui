@@ -19,7 +19,7 @@
     <div class="p-grid retira_margin_p_grid">
         <div class="p-col-12">
             <p-table [value]="produtos" [responsive]="true" [paginator]="true" [rows]="filtro.itensPorPagina"
-                [lazy]="true" [totalRecords]="totalRegistros" (onLazyLoad)="aoMudarPagina($event)">
+                [lazy]="true" [totalRecords]="totalRegistros" (onLazyLoad)="aoMudarPagina($event)" #tabela>
                 <ng-template pTemplate="emptymessage">
                     <tr>
                         <td colspan="6">
@@ -49,7 +49,7 @@
                             <a pButton class="espaco-icones" icon="pi pi-pencil" pTooltip="Editar"
                                 tooltipPosition="top"></a>
                             <button pButton class="espaco-icones" icon="pi pi-trash" pTooltip="Excluir"
-                                tooltipPosition="top"></button>
+                                tooltipPosition="top" (click)="excluir(prod)"></button>
                         </td>
                     </tr>
                 </ng-template>

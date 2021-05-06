@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { ProdutosService, ProdutoFiltro } from '../produtos.service';
 import { LazyLoadEvent } from 'primeng/api';
 
@@ -12,6 +12,7 @@ export class PesquisaProdutosComponent implements OnInit {
   totalRegistros = 0;
   filtro = new ProdutoFiltro();
   produtos = [];
+  @ViewChild('tabela') grid;
 
   constructor(private produtosService: ProdutosService) { }
 
@@ -32,5 +33,12 @@ export class PesquisaProdutosComponent implements OnInit {
   aoMudarPagina(event: LazyLoadEvent) {
     const pagina = event.first / event.rows;
     this.pesquisar(pagina);
+  }
+
+  excluir(produto: any) {
+    this.produtosService.excluir(produto.produtoId)
+      .then(() => {
+        this.grid.clear();
+      })
   }
 }

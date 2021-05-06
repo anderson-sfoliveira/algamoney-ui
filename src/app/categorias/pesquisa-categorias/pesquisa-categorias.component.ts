@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { CategoriasService, CategoriaFiltro } from '../categorias.service';
 import { LazyLoadEvent } from 'primeng/api';
 
@@ -12,6 +12,7 @@ export class PesquisaCategoriasComponent implements OnInit {
   totalRegistros = 0;
   filtro = new CategoriaFiltro();
   categorias = [];
+  @ViewChild('tabela') grid;
 
   constructor(private categoriasService: CategoriasService) { }
 
@@ -32,5 +33,12 @@ export class PesquisaCategoriasComponent implements OnInit {
   aoMudarPagina(event: LazyLoadEvent) {
     const pagina = event.first / event.rows;
     this.pesquisar(pagina);
+  }
+
+  excluir(categoria: any) {
+    this.categoriasService.excluir(categoria.categoriaId)
+      .then(() => {
+        this.grid.clear();
+      })
   }
 }
