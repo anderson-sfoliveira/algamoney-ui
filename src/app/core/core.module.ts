@@ -11,6 +11,7 @@ import { ErrorHandlerService } from './error-handler.service';
 import { LancamentosService } from '../lancamentos/lancamentos.service';
 import { CategoriasService } from '../categorias/categorias.service';
 import { ProdutosService } from '../produtos/produtos.service';
+import { UsuariosService } from '../usuarios/usuarios.service';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { ProdutosService } from '../produtos/produtos.service';
     MessageService,
     ErrorHandlerService,
     ConfirmationService,
+    UsuariosService,
 
     {provide: LOCALE_ID, useValue: 'pt-BR'}
   ]

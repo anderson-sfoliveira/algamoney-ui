@@ -16,6 +16,7 @@ import { CoreModule } from './core/core.module';
 import { PessoasModule } from './pessoas/pessoas.module';
 import { CategoriasModule } from './categorias/categorias.module';
 import { ProdutosModule } from './produtos/produtos.module';
+import { UsuariosModule } from './usuarios/usuarios.module';
 
 registerLocaleData(localePt);
 
@@ -36,7 +37,8 @@ registerLocaleData(localePt);
     CoreModule,
     PessoasModule,
     CategoriasModule,
-    ProdutosModule
+    ProdutosModule,
+    UsuariosModule
   ],
   bootstrap: [AppComponent]
 })
