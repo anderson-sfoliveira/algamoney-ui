@@ -62,4 +62,17 @@ export class PesquisaUsuariosComponent implements OnInit {
       })
       .catch(erro => this.errorHandlerService.handle(erro));
   }
+
+  mudarStatus(usuario: any) {
+    const novoStatus = !usuario.ativo;
+
+    this.usuariosService.mudarStatus(usuario.usuarioId, novoStatus)
+      .then(() => {
+        usuario.ativo = novoStatus;
+
+        const acao = novoStatus ? 'ativado' : 'desativado';
+        this.messageService.add({ severity: 'success', summary: 'BRL Sistemas', detail: `Usuário ${acao} com sucesso!` });
+      })
+      .catch(erro => this.errorHandlerService.handle(erro));
+  }
 }

@@ -34,7 +34,7 @@
                         <th>Login</th>
                         <th>E-mail</th>
                         <th>Admin</th>
-                        <th>Ativo</th>
+                        <th>Status</th>
                         <th class="col-acoes-header"></th>
                     </tr>
                 </ng-template>
@@ -45,7 +45,10 @@
                         <td><span class="p-column-title">Login</span>{{usu.login}}</td>
                         <td><span class="p-column-title">E-mail</span>{{usu.email}}</td>
                         <td><span class="p-column-title">administrador</span>{{usu.administrador}}</td>
-                        <td><span class="p-column-title">Ativo</span>{{usu.ativo}}</td>
+                        <td><span class="p-column-title">Status</span>
+                            <a href="javascript:;" [pTooltip]="usu.ativo ? 'Desativar' : 'Ativar'" tooltipPosition="top"
+                                (click)="mudarStatus(usu)">{{usu.ativo ? 'Ativo' : 'Inativo'}}</a>
+                        </td>
                         <td class="col-acoes-content">
                             <a pButton class="espaco-icones" icon="pi pi-pencil" pTooltip="Editar"
                                 tooltipPosition="top"></a>
