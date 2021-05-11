@@ -10,6 +10,11 @@
                 <input type="text" pInputText name="nome" [(ngModel)]="filtro.nome" />
             </div>
 
+            <div class="p-col-12 p-fluid">
+                <label>Categoria</label>
+                <p-dropdown [options]="categorias" placeholder="Selecione" [filter]="true"></p-dropdown>
+            </div>
+
             <div class="p-col-12">
                 <button pButton type="submit" label="Pesquisar"></button>
             </div>
@@ -44,7 +49,8 @@
                         <td><span class="p-column-title">Descricao</span>{{prod.descricao}}</td>
                         <td><span class="p-column-title">Categoria</span>{{prod.categoria}}</td>
                         <td class="col-valor-content">
-                            <span class="p-column-title">Preço</span>{{prod.preco | number:'1.2-2'}}</td>
+                            <span class="p-column-title">Preço</span>{{prod.preco | number:'1.2-2'}}
+                        </td>
                         <td class="col-acoes-content">
                             <a pButton class="espaco-icones" icon="pi pi-pencil" pTooltip="Editar"
                                 tooltipPosition="top"></a>

@@ -44,13 +44,13 @@ export class CategoriasService {
       });
   }
 
-  listarTodos(): Promise<any> {
+  listarTodas(): Promise<any> {
     const headers = new HttpHeaders()
       .append('Authorization', 'Basic YWRtbTRhZG1pbmlzdHJhZG9yOjEyMzQ1Ng==');
 
     return this.http.get(`${this.categoriasURL}`, { headers })
       .toPromise()
-      .then(response => response['content']);
+      .then(response => response);
   }
 
   excluir(id: number): Promise<void> {
