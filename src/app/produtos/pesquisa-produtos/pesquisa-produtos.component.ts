@@ -34,8 +34,6 @@ export class PesquisaProdutosComponent implements OnInit {
   carregarCategorias() {
     return this.categoriasService.listarTodas()
       .then(resultado => {
-        console.log(resultado);
-        
         this.categorias = resultado.map(c => {
           return { label: c.descricao, value: c.categoriaId };
         });
