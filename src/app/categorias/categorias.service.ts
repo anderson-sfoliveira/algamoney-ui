@@ -32,7 +32,7 @@ export class CategoriasService {
       params = params.set('descricao', filtro.descricao);
     }
     
-    return this.http.get(`${this.categoriasURL}`, { headers, params })
+    return this.http.get(`${this.categoriasURL}?filtrar`, { headers, params })
       .toPromise()
       .then(response => {
         const categorias = response['content']
