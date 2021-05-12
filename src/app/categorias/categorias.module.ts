@@ -17,10 +17,12 @@ import { InputMaskModule } from 'primeng/inputmask';
 import { SharedModule } from '../shared/shared.module';
 
 import { PesquisaCategoriasComponent } from './pesquisa-categorias/pesquisa-categorias.component';
+import { CadastroCategoriasComponent } from './cadastro-categorias/cadastro-categorias.component';
 
 @NgModule({
   declarations: [
-    PesquisaCategoriasComponent
+    PesquisaCategoriasComponent,
+    CadastroCategoriasComponent
   ],
   imports: [
     CommonModule,
@@ -41,7 +43,8 @@ import { PesquisaCategoriasComponent } from './pesquisa-categorias/pesquisa-cate
     SharedModule
   ],
   exports: [
-    PesquisaCategoriasComponent
+    PesquisaCategoriasComponent,
+    CadastroCategoriasComponent
   ]
 })
 export class CategoriasModule { }

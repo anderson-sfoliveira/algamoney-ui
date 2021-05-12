@@ -1,0 +1,28 @@
+<div class="container">
+    <form #f="ngForm" autocomplete="off">
+
+        <div class="p-grid retira_margin_p_grid">
+
+            <div class="p-col-12">
+                <h1>Nova Categoria</h1>
+            </div>
+
+            <div class="p-col-12 p-fluid">
+                <label>Descrição</label>
+                <input pInputText type="text" name="descricao" ngModel #descricao="ngModel" required minlength="2">
+
+                <app-message [control]="descricao" error="required" text="Informe uma descricao"></app-message>
+                <app-message [control]="descricao" error="minlength"
+                    text="Mínimo de  {{ descricao.errors?.minlength?.requiredLength }} caracteres"></app-message>
+            </div>
+
+            <div class="p-col-12 cadastro-acoes">
+                <button pButton type="submit" label="Salvar" [disabled]="f.invalid"></button>
+                <button pButton type="button" label="Novo" class="p-button-secondary"></button>
+                <a href="javascript:;">Voltar para a pesquisa</a>
+            </div>
+
+        </div>
+
+    </form>
+</div>
