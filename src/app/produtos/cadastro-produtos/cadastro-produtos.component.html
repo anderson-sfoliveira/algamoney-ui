@@ -18,8 +18,7 @@
 
             <div class="p-col-12 p-md-3 p-fluid">
               <label>Preço</label>
-              <input type="text" pInputText currencyMask name="preco" [(ngModel)]="produto.preco"
-                [options]="{ nullable: true, prefix: 'R$ ', thousands: '.', decimal: ',' , allowNegative: false}" #preco="ngModel" required/>
+              <p-inputNumber mode="currency" currency="BRL" locale="pt-BR" placeholder="R$ 0,00" name="preco" [(ngModel)]="produto.preco" #preco="ngModel" required></p-inputNumber>
 
               <app-message [control]="preco" error="required" text="Informe o preço"></app-message>
             </div>
