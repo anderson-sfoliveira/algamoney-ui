@@ -15,6 +15,7 @@ import { CheckboxModule } from 'primeng/checkbox';
 import { InputMaskModule } from 'primeng/inputmask';
 import { SharedModule } from '../shared/shared.module';
 import { CadastroProdutosComponent } from './cadastro-produtos/cadastro-produtos.component';
+import { NgxCurrencyModule } from 'ngx-currency';
 
 
 
@@ -38,6 +39,7 @@ import { CadastroProdutosComponent } from './cadastro-produtos/cadastro-produtos
     InputNumberModule,
     CheckboxModule,
     InputMaskModule,
+    NgxCurrencyModule,
 
     SharedModule
   ],

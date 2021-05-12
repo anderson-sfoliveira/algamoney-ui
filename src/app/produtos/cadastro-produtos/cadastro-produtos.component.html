@@ -15,12 +15,13 @@
                 <app-message [control]="nome" error="minlength"
                     text="Mínimo de  {{ nome.errors?.minlength?.requiredLength }} caracteres"></app-message>
             </div>
-
+            
             <div class="p-col-12 p-md-3 p-fluid">
-              <label>Preço</label>
-              <p-inputNumber mode="currency" currency="BRL" locale="pt-BR" placeholder="R$ 0,00" name="preco" [(ngModel)]="produto.preco" #preco="ngModel" required></p-inputNumber>
+                <label>Preço</label>
+                <input type="text" pInputText currencyMask name="preco" [(ngModel)]="produto.preco" #preco="ngModel"
+                [options]="{ nullable: true, prefix: 'R$ ', thousands: '.', decimal: ',' , allowNegative: false}" required/>
 
-              <app-message [control]="preco" error="required" text="Informe o preço"></app-message>
+                <app-message [control]="preco" error="required" text="Informe o preço"></app-message>
             </div>
 
             <div class="p-col-12 p-md-3 p-fluid">
