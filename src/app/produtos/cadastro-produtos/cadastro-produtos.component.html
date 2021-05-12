@@ -16,7 +16,7 @@
                     text="Mínimo de  {{ nome.errors?.minlength?.requiredLength }} caracteres"></app-message>
             </div>
             
-            <div class="p-col-12 p-md-3 p-fluid">
+            <div class="p-col-12 p-sm-6 p-md-3 p-fluid">
                 <label>Preço</label>
                 <input type="text" pInputText currencyMask name="preco" [(ngModel)]="produto.preco" #preco="ngModel"
                 [options]="{ nullable: true, prefix: 'R$ ', thousands: '.', decimal: ',' , allowNegative: false}" required/>
@@ -24,7 +24,7 @@
                 <app-message [control]="preco" error="required" text="Informe o preço"></app-message>
             </div>
 
-            <div class="p-col-12 p-md-3 p-fluid">
+            <div class="p-col-12 p-sm-6 p-md-3 p-fluid">
               <label>Categoria</label>
               <p-dropdown [options]="categorias" placeholder="Selecione" [filter]="true" name="categoria" [(ngModel)]="produto.categoria.categoriaId" #categoria="ngModel" required></p-dropdown>
 
