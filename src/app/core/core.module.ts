@@ -12,6 +12,7 @@ import { LancamentosService } from '../lancamentos/lancamentos.service';
 import { CategoriasService } from '../categorias/categorias.service';
 import { ProdutosService } from '../produtos/produtos.service';
 import { UsuariosService } from '../usuarios/usuarios.service';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { UsuariosService } from '../usuarios/usuarios.service';
   ],
   imports: [
     CommonModule,
+    RouterModule,
 
     ToastModule,
     ConfirmDialogModule
