@@ -16,6 +16,7 @@ import { InputMaskModule } from 'primeng/inputmask';
 import { SharedModule } from '../shared/shared.module';
 import { CadastroProdutosComponent } from './cadastro-produtos/cadastro-produtos.component';
 import { NgxCurrencyModule } from 'ngx-currency';
+import { RouterModule } from '@angular/router';
 
 
 
@@ -27,6 +28,7 @@ import { NgxCurrencyModule } from 'ngx-currency';
   imports: [
     CommonModule,
     FormsModule,
+    RouterModule,
 
     InputTextModule,
     ButtonModule,
