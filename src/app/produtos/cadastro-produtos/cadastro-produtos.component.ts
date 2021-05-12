@@ -28,8 +28,22 @@ export class CadastroProdutosComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    console.log(this.route.snapshot.params['id']);
     this.carregarCategorias();
+
+    const produtoId = this.route.snapshot.params['id'];
+    if (produtoId) {
+      this.carregarProduto(produtoId);
+    }
+  }
+  get editando() {
+    return Boolean(this.produto.produtoId);
+  }
+  carregarProduto(id: number) {
+    this.produtosService.buscarPorId(id)
+      .then(resultado => {
+        this.produto = resultado;
+      })
+      .catch(erro => this.errorHandlerService.handle(erro));
   }
 
   carregarCategorias() {
@@ -43,6 +57,14 @@ export class CadastroProdutosComponent implements OnInit {
   }
 
   salvar(form: NgForm) {
+    if (this.editando) {
+      this.atualizar(form);
+    } else {
+      this.adicionar(form);
+    }
+  }
+
+  adicionar(form: NgForm) {
     this.produtosService.adicionar(this.produto)
     .then(() => {
       this.messageService.add({ severity: 'success', summary: 'BRL Sistemas', detail: 'Produto adicionado com sucesso!' });
@@ -53,4 +75,12 @@ export class CadastroProdutosComponent implements OnInit {
     .catch(erro => this.errorHandlerService.handle(erro));
   }
 
+  atualizar(form: NgForm) {
+    this.produtosService.atualizar(this.produto)
+      .then(resultado => {
+        this.produto = resultado;
+        this.messageService.add({ severity: 'success', summary: 'BRL Sistemas', detail: 'Produto atualizado com sucesso!' });
+      })
+      .catch(erro => this.errorHandlerService.handle(erro));
+  }
 }

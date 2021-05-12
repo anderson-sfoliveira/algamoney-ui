@@ -62,4 +62,20 @@ export class ProdutosService {
     return this.http.post<Produto>(this.produtosURL, produto, { headers })
       .toPromise();
   }
+
+  atualizar(produto: Produto): Promise<Produto> {
+    const headers = new HttpHeaders()
+      .append('Authorization', 'Basic YWRtbTRhZG1pbmlzdHJhZG9yOjEyMzQ1Ng==')
+      .append('Content-Type', 'application/json');
+      
+    return this.http.put<Produto>(`${this.produtosURL}/${produto.produtoId}`, produto, { headers })
+      .toPromise();
+  }
+  buscarPorId(id: number): Promise<Produto> {
+    const headers = new HttpHeaders()
+      .append('Authorization', 'Basic YWRtbTRhZG1pbmlzdHJhZG9yOjEyMzQ1Ng==');
+    return this.http.get<Produto>(`${this.produtosURL}/${id}`, { headers })
+      .toPromise()
+      .then(response => response);
+  }
 }
