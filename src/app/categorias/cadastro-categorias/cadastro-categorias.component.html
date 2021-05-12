@@ -1,5 +1,5 @@
 <div class="container">
-    <form #f="ngForm" autocomplete="off">
+    <form #f="ngForm" autocomplete="off" (ngSubmit)="salvar(f)">
 
         <div class="p-grid retira_margin_p_grid">
 
@@ -9,7 +9,7 @@
 
             <div class="p-col-12 p-fluid">
                 <label>Descrição</label>
-                <input pInputText type="text" name="descricao" ngModel #descricao="ngModel" required minlength="2">
+                <input pInputText type="text" name="descricao" [(ngModel)]="categoria.descricao" #descricao="ngModel" required minlength="2">
 
                 <app-message [control]="descricao" error="required" text="Informe uma descricao"></app-message>
                 <app-message [control]="descricao" error="minlength"
