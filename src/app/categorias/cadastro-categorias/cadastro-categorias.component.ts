@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { MessageService } from 'primeng/api';
+import { ErrorHandlerService } from 'src/app/core/error-handler.service';
 
 import { Categoria } from 'src/app/core/model';
+import { CategoriasService } from '../categorias.service';
 
 @Component({
   selector: 'app-cadastro-categorias',
@@ -12,13 +15,24 @@ export class CadastroCategoriasComponent implements OnInit {
 
   categoria = new Categoria();
 
-  constructor() { }
+  constructor(
+    private categoriasService: CategoriasService,
+    private errorHandlerService: ErrorHandlerService,
+    private messageService: MessageService
+  ) { }
 
   ngOnInit(): void {
   }
 
   salvar(form: NgForm) {
-    console.log(this.categoria);
+    this.categoriasService.adicionar(this.categoria)
+    .then(() => {
+      this.messageService.add({ severity: 'success', summary: 'BRL Sistemas', detail: 'Categoria adicionada com sucesso!' });
+      
+      form.reset();
+      this.categoria = new Categoria();
+    })
+    .catch(erro => this.errorHandlerService.handle(erro));
   }
 
 }
