@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
+import { Produto } from '../core/model';
 
 // essa interface é criada para criar um "contrato" para definir quais serão os campos do filtro.
 export class ProdutoFiltro {
@@ -51,5 +52,14 @@ export class ProdutosService {
       return this.http.delete(`${this.produtosURL}/${id}`, { headers })
       .toPromise()
       .then(() => null);
+  }
+
+  adicionar(produto: Produto): Promise<Produto> {
+    const headers = new HttpHeaders()
+      .append('Authorization', 'Basic YWRtbTRhZG1pbmlzdHJhZG9yOjEyMzQ1Ng==')
+      .append('Content-Type', 'application/json');
+  
+    return this.http.post<Produto>(this.produtosURL, produto, { headers })
+      .toPromise();
   }
 }

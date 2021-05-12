@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { MessageService } from 'primeng/api';
 
 import { CategoriasService } from 'src/app/categorias/categorias.service';
 import { ErrorHandlerService } from 'src/app/core/error-handler.service';
 import { Produto } from 'src/app/core/model';
+import { ProdutosService } from '../produtos.service';
 
 @Component({
   selector: 'app-cadastro-produtos',
@@ -17,7 +19,9 @@ export class CadastroProdutosComponent implements OnInit {
 
   constructor(
     private errorHandlerService: ErrorHandlerService,
-    private categoriasService: CategoriasService
+    private categoriasService: CategoriasService,
+    private produtosService: ProdutosService,
+    private messageService: MessageService
   ) { }
 
   ngOnInit(): void {
@@ -35,7 +39,14 @@ export class CadastroProdutosComponent implements OnInit {
   }
 
   salvar(form: NgForm) {
-    console.log(this.produto);
+    this.produtosService.adicionar(this.produto)
+    .then(() => {
+      this.messageService.add({ severity: 'success', summary: 'BRL Sistemas', detail: 'Produto adicionado com sucesso!' });
+      
+      form.reset();
+      this.produto = new Produto();
+    })
+    .catch(erro => this.errorHandlerService.handle(erro));
   }
 
 }

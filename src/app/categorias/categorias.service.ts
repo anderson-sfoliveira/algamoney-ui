@@ -63,12 +63,12 @@ export class CategoriasService {
       .then(() => null);
   }
 
-  adicionar(lancamento: Categoria): Promise<Categoria> {
+  adicionar(categoria: Categoria): Promise<Categoria> {
     const headers = new HttpHeaders()
       .append('Authorization', 'Basic YWRtbTRhZG1pbmlzdHJhZG9yOjEyMzQ1Ng==')
       .append('Content-Type', 'application/json');
   
-    return this.http.post<Categoria>(this.categoriasURL, lancamento, { headers })
+    return this.http.post<Categoria>(this.categoriasURL, categoria, { headers })
       .toPromise();
   }
 }
