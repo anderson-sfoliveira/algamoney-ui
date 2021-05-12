@@ -52,8 +52,8 @@
                             <span class="p-column-title">Preço</span>{{prod.preco | number:'1.2-2'}}
                         </td>
                         <td class="col-acoes-content">
-                            <a pButton class="espaco-icones" icon="pi pi-pencil" pTooltip="Editar"
-                                tooltipPosition="top"></a>
+                            <a pButton class="espaco-icones" icon="pi pi-pencil" pTooltip="Editar" tooltipPosition="top"
+                                [routerLink]="['/produtos', prod.produtoId]"></a>
                             <button pButton class="espaco-icones" icon="pi pi-trash" pTooltip="Excluir"
                                 tooltipPosition="top" (click)="confirmaExclusao(prod)"></button>
                         </td>

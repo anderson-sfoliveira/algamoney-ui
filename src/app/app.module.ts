@@ -29,8 +29,10 @@ registerLocaleData(localePt);
 const routes: Routes = [
   { path: 'categorias', component: PesquisaCategoriasComponent },
   { path: 'categorias/novo', component: CadastroCategoriasComponent },
+  { path: 'categorias/:id', component: CadastroCategoriasComponent },
   { path: 'produtos', component: PesquisaProdutosComponent },
-  { path: 'produtos/novo', component: CadastroProdutosComponent }
+  { path: 'produtos/novo', component: CadastroProdutosComponent },
+  { path: 'produtos/:id', component: CadastroProdutosComponent }
 ];
 
 @NgModule({

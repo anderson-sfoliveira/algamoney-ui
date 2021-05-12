@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { MessageService } from 'primeng/api';
-import { ErrorHandlerService } from 'src/app/core/error-handler.service';
+import { ActivatedRoute } from '@angular/router';
 
+import { MessageService } from 'primeng/api';
+
+import { ErrorHandlerService } from 'src/app/core/error-handler.service';
 import { Categoria } from 'src/app/core/model';
 import { CategoriasService } from '../categorias.service';
 
@@ -18,10 +20,12 @@ export class CadastroCategoriasComponent implements OnInit {
   constructor(
     private categoriasService: CategoriasService,
     private errorHandlerService: ErrorHandlerService,
-    private messageService: MessageService
+    private messageService: MessageService,
+    private route: ActivatedRoute
   ) { }
 
   ngOnInit(): void {
+    console.log(this.route.snapshot.params['id']);
   }
 
   salvar(form: NgForm) {

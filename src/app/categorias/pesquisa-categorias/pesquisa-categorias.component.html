@@ -35,8 +35,8 @@
                     <tr>
                         <td><span class="p-column-title">Descricao</span>{{cat.descricao}}</td>
                         <td class="col-acoes-content">
-                            <a pButton class="espaco-icones" icon="pi pi-pencil" pTooltip="Editar"
-                                tooltipPosition="top"></a>
+                            <a pButton class="espaco-icones" icon="pi pi-pencil" pTooltip="Editar" tooltipPosition="top"
+                                [routerLink]="['/categorias', cat.categoriaId]"></a>
                             <button pButton class="espaco-icones" icon="pi pi-trash" pTooltip="Excluir"
                                 tooltipPosition="top" (click)="confirmaExclusao(cat)"></button>
                         </td>
