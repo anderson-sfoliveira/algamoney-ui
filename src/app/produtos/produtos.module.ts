@@ -14,12 +14,14 @@ import { InputNumberModule } from 'primeng/inputnumber';
 import { CheckboxModule } from 'primeng/checkbox';
 import { InputMaskModule } from 'primeng/inputmask';
 import { SharedModule } from '../shared/shared.module';
+import { CadastroProdutosComponent } from './cadastro-produtos/cadastro-produtos.component';
 
 
 
 @NgModule({
   declarations: [
-    PesquisaProdutosComponent
+    PesquisaProdutosComponent,
+    CadastroProdutosComponent
   ],
   imports: [
     CommonModule,
@@ -40,7 +42,8 @@ import { SharedModule } from '../shared/shared.module';
     SharedModule
   ],
   exports: [
-    PesquisaProdutosComponent
+    PesquisaProdutosComponent,
+    CadastroProdutosComponent
   ]
 })
 export class ProdutosModule { }

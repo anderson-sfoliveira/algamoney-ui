@@ -1,0 +1,51 @@
+<div class="container">
+    <form #f="ngForm" autocomplete="off" (ngSubmit)="salvar(f)">
+
+        <div class="p-grid retira_margin_p_grid">
+
+            <div class="p-col-12">
+                <h1>Novo Produto</h1>
+            </div>
+
+            <div class="p-col-12 p-md-6 p-fluid">
+                <label>Nome</label>
+                <input pInputText type="text" name="nome" [(ngModel)]="produto.nome" #nome="ngModel" required minlength="2">
+
+                <app-message [control]="nome" error="required" text="Informe um nome"></app-message>
+                <app-message [control]="nome" error="minlength"
+                    text="Mínimo de  {{ nome.errors?.minlength?.requiredLength }} caracteres"></app-message>
+            </div>
+
+            <div class="p-col-12 p-md-3 p-fluid">
+              <label>Preço</label>
+              <p-inputNumber mode="currency" currency="BRL" locale="pt-BR" placeholder="R$ 0,00" name="preco" [(ngModel)]="produto.preco" #preco="ngModel" required></p-inputNumber>
+
+              <app-message [control]="preco" error="required" text="Informe o preço"></app-message>
+            </div>
+
+            <div class="p-col-12 p-md-3 p-fluid">
+              <label>Categoria</label>
+              <p-dropdown [options]="categorias" placeholder="Selecione" [filter]="true" name="categoria" [(ngModel)]="produto.categoria.categoriaId" #categoria="ngModel" required></p-dropdown>
+
+              <app-message [control]="categoria" error="required" text="Escolha uma categoria"></app-message>
+            </div>
+
+            <div class="p-col-12 p-fluid">
+                <label>Descrição</label>
+                <input pInputText type="text" name="descricao" [(ngModel)]="produto.descricao" #descricao="ngModel" required minlength="2">
+
+                <app-message [control]="descricao" error="required" text="Informe uma descricao"></app-message>
+                <app-message [control]="descricao" error="minlength"
+                    text="Mínimo de  {{ descricao.errors?.minlength?.requiredLength }} caracteres"></app-message>
+            </div>
+
+            <div class="p-col-12 cadastro-acoes">
+                <button pButton type="submit" label="Salvar" [disabled]="f.invalid"></button>
+                <button pButton type="button" label="Novo" class="p-button-secondary"></button>
+                <a href="javascript:;">Voltar para a pesquisa</a>
+            </div>
+
+        </div>
+
+    </form>
+</div>
