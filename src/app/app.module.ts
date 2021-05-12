@@ -4,6 +4,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { registerLocaleData } from '@angular/common';
 import localePt from '@angular/common/locales/pt';
+import { RouterModule, Routes } from '@angular/router';
 
 import { AppComponent } from './app.component';
 
@@ -17,8 +18,20 @@ import { PessoasModule } from './pessoas/pessoas.module';
 import { CategoriasModule } from './categorias/categorias.module';
 import { ProdutosModule } from './produtos/produtos.module';
 import { UsuariosModule } from './usuarios/usuarios.module';
+import { PesquisaCategoriasComponent } from './categorias/pesquisa-categorias/pesquisa-categorias.component';
+import { CadastroCategoriasComponent } from './categorias/cadastro-categorias/cadastro-categorias.component';
+import { CadastroProdutosComponent } from './produtos/cadastro-produtos/cadastro-produtos.component';
+import { PesquisaProdutosComponent } from './produtos/pesquisa-produtos/pesquisa-produtos.component';
 
 registerLocaleData(localePt);
+
+// array de configurações de rotas
+const routes: Routes = [
+  { path: 'categorias', component: PesquisaCategoriasComponent },
+  { path: 'categorias/novo', component: CadastroCategoriasComponent },
+  { path: 'produtos', component: PesquisaProdutosComponent },
+  { path: 'produtos/novo', component: CadastroProdutosComponent }
+];
 
 @NgModule({
   declarations: [
@@ -28,6 +41,7 @@ registerLocaleData(localePt);
     BrowserModule,
     BrowserAnimationsModule,
     HttpClientModule,
+    RouterModule.forRoot(routes),
 
     NavegacaoModule,
     LancamentosModule,
