@@ -71,4 +71,22 @@ export class CategoriasService {
     return this.http.post<Categoria>(this.categoriasURL, categoria, { headers })
       .toPromise();
   }
+
+  atualizar(categoria: Categoria): Promise<Categoria> {
+    const headers = new HttpHeaders()
+      .append('Authorization', 'Basic YWRtbTRhZG1pbmlzdHJhZG9yOjEyMzQ1Ng==')
+      .append('Content-Type', 'application/json');
+      
+    return this.http.put<Categoria>(`${this.categoriasURL}/${categoria.categoriaId}`, categoria, { headers })
+      .toPromise();
+  }
+
+  buscarPorId(id: number): Promise<Categoria> {
+    const headers = new HttpHeaders()
+      .append('Authorization', 'Basic YWRtbTRhZG1pbmlzdHJhZG9yOjEyMzQ1Ng==');
+
+    return this.http.get<Categoria>(`${this.categoriasURL}/${id}`, { headers })
+      .toPromise()
+      .then(response => response);
+  }
 }
