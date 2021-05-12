@@ -18,6 +18,7 @@ import { SharedModule } from '../shared/shared.module';
 
 import { PesquisaCategoriasComponent } from './pesquisa-categorias/pesquisa-categorias.component';
 import { CadastroCategoriasComponent } from './cadastro-categorias/cadastro-categorias.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { CadastroCategoriasComponent } from './cadastro-categorias/cadastro-cate
   imports: [
     CommonModule,
     FormsModule,
+    RouterModule,
 
     InputTextModule,
     ButtonModule,
