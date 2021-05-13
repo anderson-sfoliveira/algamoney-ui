@@ -4,7 +4,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { registerLocaleData } from '@angular/common';
 import localePt from '@angular/common/locales/pt';
-import { RouterModule, Routes } from '@angular/router';
 
 import { AppComponent } from './app.component';
 
@@ -18,26 +17,9 @@ import { PessoasModule } from './pessoas/pessoas.module';
 import { CategoriasModule } from './categorias/categorias.module';
 import { ProdutosModule } from './produtos/produtos.module';
 import { UsuariosModule } from './usuarios/usuarios.module';
-import { PesquisaCategoriasComponent } from './categorias/pesquisa-categorias/pesquisa-categorias.component';
-import { CadastroCategoriasComponent } from './categorias/cadastro-categorias/cadastro-categorias.component';
-import { CadastroProdutosComponent } from './produtos/cadastro-produtos/cadastro-produtos.component';
-import { PesquisaProdutosComponent } from './produtos/pesquisa-produtos/pesquisa-produtos.component';
-import { PaginaNaoEncontradaComponent } from './core/pagina-nao-encontrada.component';
+import { AppRoutingModule } from './app-routing.module';
 
 registerLocaleData(localePt);
-
-// array de configurações de rotas
-const routes: Routes = [
-  { path: '', redirectTo: 'produtos', pathMatch: 'full' },
-  { path: 'pagina-nao-encontrada', component: PaginaNaoEncontradaComponent },
-  { path: 'categorias', component: PesquisaCategoriasComponent },
-  { path: 'categorias/novo', component: CadastroCategoriasComponent },
-  { path: 'categorias/:id', component: CadastroCategoriasComponent },
-  { path: 'produtos', component: PesquisaProdutosComponent },
-  { path: 'produtos/novo', component: CadastroProdutosComponent },
-  { path: 'produtos/:id', component: CadastroProdutosComponent },
-  { path: '**', redirectTo: 'pagina-nao-encontrada' } // deixar sempre por último, para que o Angular verifique todas as rotas antes de redirecionar para a pagina-nao-encontrada.
-];
 
 @NgModule({
   declarations: [
@@ -47,7 +29,6 @@ const routes: Routes = [
     BrowserModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    RouterModule.forRoot(routes),
 
     NavegacaoModule,
     LancamentosModule,
@@ -58,7 +39,8 @@ const routes: Routes = [
     PessoasModule,
     CategoriasModule,
     ProdutosModule,
-    UsuariosModule
+    UsuariosModule,
+    AppRoutingModule
   ],
   bootstrap: [AppComponent]
 })
