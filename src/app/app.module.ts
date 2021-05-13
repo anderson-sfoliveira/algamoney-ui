@@ -27,6 +27,7 @@ registerLocaleData(localePt);
 
 // array de configurações de rotas
 const routes: Routes = [
+  { path: '', redirectTo: 'produtos', pathMatch: 'full' },
   { path: 'categorias', component: PesquisaCategoriasComponent },
   { path: 'categorias/novo', component: CadastroCategoriasComponent },
   { path: 'categorias/:id', component: CadastroCategoriasComponent },
