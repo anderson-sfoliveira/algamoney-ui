@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 import { MessageService } from 'primeng/api';
 
@@ -24,7 +24,8 @@ export class CadastroProdutosComponent implements OnInit {
     private categoriasService: CategoriasService,
     private produtosService: ProdutosService,
     private messageService: MessageService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute, // router = rota
+    private router: Router // router = roteador
   ) { }
 
   ngOnInit(): void {
@@ -66,11 +67,12 @@ export class CadastroProdutosComponent implements OnInit {
 
   adicionar(form: NgForm) {
     this.produtosService.adicionar(this.produto)
-    .then(() => {
+    .then(resultado => {
       this.messageService.add({ severity: 'success', summary: 'BRL Sistemas', detail: 'Produto adicionado com sucesso!' });
       
-      form.reset();
-      this.produto = new Produto();
+      // form.reset();
+      // this.produto = new Produto();
+      this.router.navigate(['/produtos', resultado.produtoId]);
     })
     .catch(erro => this.errorHandlerService.handle(erro));
   }
@@ -82,5 +84,14 @@ export class CadastroProdutosComponent implements OnInit {
         this.messageService.add({ severity: 'success', summary: 'BRL Sistemas', detail: 'Produto atualizado com sucesso!' });
       })
       .catch(erro => this.errorHandlerService.handle(erro));
+  }
+
+  novo(form: NgForm) {
+    form.reset();
+    
+    setTimeout(function() {
+      this.produto = new Produto();
+    }.bind(this), 1);
+    this.router.navigate(['/produtos/novo']);
   }
 }
