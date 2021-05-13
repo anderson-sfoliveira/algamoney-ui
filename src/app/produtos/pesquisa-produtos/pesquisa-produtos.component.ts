@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 
 import { ConfirmationService, LazyLoadEvent, MessageService } from 'primeng/api';
 
@@ -24,10 +25,13 @@ export class PesquisaProdutosComponent implements OnInit {
     private messageService: MessageService,
     private confirmationService: ConfirmationService,
     private errorHandlerService: ErrorHandlerService,
-    private categoriasService: CategoriasService
+    private categoriasService: CategoriasService,
+    private title: Title
   ) { }
 
   ngOnInit() {
+    this.title.setTitle('Pesquisa de produtos');
+    
     this.carregarCategorias();
   }
 

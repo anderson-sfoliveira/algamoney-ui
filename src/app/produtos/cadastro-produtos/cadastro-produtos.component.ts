@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { Title } from '@angular/platform-browser';
 import { ActivatedRoute, Router } from '@angular/router';
 
 import { MessageService } from 'primeng/api';
@@ -25,10 +26,13 @@ export class CadastroProdutosComponent implements OnInit {
     private produtosService: ProdutosService,
     private messageService: MessageService,
     private route: ActivatedRoute, // router = rota
-    private router: Router // router = roteador
+    private router: Router, // router = roteador
+    private title: Title
   ) { }
 
   ngOnInit(): void {
+    this.title.setTitle('Novo produto');
+
     this.carregarCategorias();
 
     const produtoId = this.route.snapshot.params['id'];
@@ -36,13 +40,16 @@ export class CadastroProdutosComponent implements OnInit {
       this.carregarProduto(produtoId);
     }
   }
+
   get editando() {
     return Boolean(this.produto.produtoId);
   }
+
   carregarProduto(id: number) {
     this.produtosService.buscarPorId(id)
       .then(resultado => {
         this.produto = resultado;
+        this.atualizarTituloEdicao();
       })
       .catch(erro => this.errorHandlerService.handle(erro));
   }
@@ -67,14 +74,14 @@ export class CadastroProdutosComponent implements OnInit {
 
   adicionar(form: NgForm) {
     this.produtosService.adicionar(this.produto)
-    .then(resultado => {
-      this.messageService.add({ severity: 'success', summary: 'BRL Sistemas', detail: 'Produto adicionado com sucesso!' });
-      
-      // form.reset();
-      // this.produto = new Produto();
-      this.router.navigate(['/produtos', resultado.produtoId]);
-    })
-    .catch(erro => this.errorHandlerService.handle(erro));
+      .then(resultado => {
+        this.messageService.add({ severity: 'success', summary: 'BRL Sistemas', detail: 'Produto adicionado com sucesso!' });
+
+        // form.reset();
+        // this.produto = new Produto();
+        this.router.navigate(['/produtos', resultado.produtoId]);
+      })
+      .catch(erro => this.errorHandlerService.handle(erro));
   }
 
   atualizar(form: NgForm) {
@@ -82,16 +89,21 @@ export class CadastroProdutosComponent implements OnInit {
       .then(resultado => {
         this.produto = resultado;
         this.messageService.add({ severity: 'success', summary: 'BRL Sistemas', detail: 'Produto atualizado com sucesso!' });
+        this.atualizarTituloEdicao();
       })
       .catch(erro => this.errorHandlerService.handle(erro));
   }
 
   novo(form: NgForm) {
     form.reset();
-    
-    setTimeout(function() {
+
+    setTimeout(function () {
       this.produto = new Produto();
     }.bind(this), 1);
     this.router.navigate(['/produtos/novo']);
+  }
+
+  atualizarTituloEdicao() {
+    this.title.setTitle(`Edição produto: ${this.produto.nome}`);
   }
 }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { Title } from '@angular/platform-browser';
 import { ActivatedRoute, Router } from '@angular/router';
 
 import { MessageService } from 'primeng/api';
@@ -22,10 +23,13 @@ export class CadastroCategoriasComponent implements OnInit {
     private errorHandlerService: ErrorHandlerService,
     private messageService: MessageService,
     private route: ActivatedRoute, // router = rota
-    private router: Router // router = roteador
+    private router: Router, // router = roteador
+    private title: Title
   ) { }
 
   ngOnInit(): void {
+    this.title.setTitle('Nova categoria');
+
     const categoriaId = this.route.snapshot.params['id'];
 
     if (categoriaId) {
@@ -41,6 +45,7 @@ export class CadastroCategoriasComponent implements OnInit {
     this.categoriasService.buscarPorId(id)
       .then(resultado => {
         this.categoria = resultado;
+        this.atualizarTituloEdicao();
       })
       .catch(erro => this.errorHandlerService.handle(erro));
   }
@@ -71,6 +76,7 @@ export class CadastroCategoriasComponent implements OnInit {
         this.categoria = resultado;
 
         this.messageService.add({ severity: 'success', summary: 'BRL Sistemas', detail: 'Categoria atualizada com sucesso!' });
+        this.atualizarTituloEdicao();
       })
       .catch(erro => this.errorHandlerService.handle(erro));
   }
@@ -83,5 +89,9 @@ export class CadastroCategoriasComponent implements OnInit {
     }.bind(this), 1);
 
     this.router.navigate(['/categorias/novo']);
+  }
+
+  atualizarTituloEdicao() {
+    this.title.setTitle(`Edição categoria: ${this.categoria.descricao}`);
   }
 }
