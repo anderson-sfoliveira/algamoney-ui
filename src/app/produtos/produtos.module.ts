@@ -45,9 +45,6 @@ import { RouterModule } from '@angular/router';
 
     SharedModule
   ],
-  exports: [
-    PesquisaProdutosComponent,
-    CadastroProdutosComponent
-  ]
+  exports: []
 })
 export class ProdutosModule { }
