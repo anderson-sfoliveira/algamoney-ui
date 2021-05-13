@@ -14,10 +14,9 @@ import { InputNumberModule } from 'primeng/inputnumber';
 import { CheckboxModule } from 'primeng/checkbox';
 import { InputMaskModule } from 'primeng/inputmask';
 
-import { SharedModule } from '../shared/shared.module';
-
 import { PesquisaCategoriasComponent } from './pesquisa-categorias/pesquisa-categorias.component';
 import { CadastroCategoriasComponent } from './cadastro-categorias/cadastro-categorias.component';
+import { SharedModule } from '../shared/shared.module';
 import { CategoriasRoutingModule } from './categorias-routing.module';
 
 @NgModule({
