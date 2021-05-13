@@ -2,8 +2,6 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 import { PaginaNaoEncontradaComponent } from './core/pagina-nao-encontrada.component';
-import { PesquisaCategoriasComponent } from './categorias/pesquisa-categorias/pesquisa-categorias.component';
-import { CadastroCategoriasComponent } from './categorias/cadastro-categorias/cadastro-categorias.component';
 import { PesquisaProdutosComponent } from './produtos/pesquisa-produtos/pesquisa-produtos.component';
 import { CadastroProdutosComponent } from './produtos/cadastro-produtos/cadastro-produtos.component';
 
