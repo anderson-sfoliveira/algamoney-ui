@@ -18,7 +18,7 @@ import { SharedModule } from '../shared/shared.module';
 
 import { PesquisaCategoriasComponent } from './pesquisa-categorias/pesquisa-categorias.component';
 import { CadastroCategoriasComponent } from './cadastro-categorias/cadastro-categorias.component';
-import { RouterModule } from '@angular/router';
+import { CategoriasRoutingModule } from './categorias-routing.module';
 
 @NgModule({
   declarations: [
@@ -28,7 +28,6 @@ import { RouterModule } from '@angular/router';
   imports: [
     CommonModule,
     FormsModule,
-    RouterModule,
 
     InputTextModule,
     ButtonModule,
@@ -42,7 +41,8 @@ import { RouterModule } from '@angular/router';
     CheckboxModule,
     InputMaskModule,
 
-    SharedModule
+    SharedModule,
+    CategoriasRoutingModule
   ],
   exports: []
 })

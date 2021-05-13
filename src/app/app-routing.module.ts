@@ -11,9 +11,6 @@ import { CadastroProdutosComponent } from './produtos/cadastro-produtos/cadastro
 const routes: Routes = [
   { path: '', redirectTo: 'produtos', pathMatch: 'full' },
   { path: 'pagina-nao-encontrada', component: PaginaNaoEncontradaComponent },
-  { path: 'categorias', component: PesquisaCategoriasComponent },
-  { path: 'categorias/novo', component: CadastroCategoriasComponent },
-  { path: 'categorias/:id', component: CadastroCategoriasComponent },
   { path: 'produtos', component: PesquisaProdutosComponent },
   { path: 'produtos/novo', component: CadastroProdutosComponent },
   { path: 'produtos/:id', component: CadastroProdutosComponent },
