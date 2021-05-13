@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 import { MessageService } from 'primeng/api';
 
@@ -21,7 +21,8 @@ export class CadastroCategoriasComponent implements OnInit {
     private categoriasService: CategoriasService,
     private errorHandlerService: ErrorHandlerService,
     private messageService: MessageService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute, // router = rota
+    private router: Router // router = roteador
   ) { }
 
   ngOnInit(): void {
@@ -54,11 +55,12 @@ export class CadastroCategoriasComponent implements OnInit {
 
   adicionar(form: NgForm) {
     this.categoriasService.adicionar(this.categoria)
-      .then(() => {
+      .then(resultado => {
         this.messageService.add({ severity: 'success', summary: 'BRL Sistemas', detail: 'Categoria adicionada com sucesso!' });
 
-        form.reset();
-        this.categoria = new Categoria();
+        // form.reset();
+        // this.categoria = new Categoria();
+        this.router.navigate(['/categorias', resultado.categoriaId]);
       })
       .catch(erro => this.errorHandlerService.handle(erro));
   }
@@ -73,4 +75,13 @@ export class CadastroCategoriasComponent implements OnInit {
       .catch(erro => this.errorHandlerService.handle(erro));
   }
 
+  novo(form: NgForm) {
+    form.reset();
+    
+    setTimeout(function() {
+      this.categoria = new Categoria();
+    }.bind(this), 1);
+
+    this.router.navigate(['/categorias/novo']);
+  }
 }
