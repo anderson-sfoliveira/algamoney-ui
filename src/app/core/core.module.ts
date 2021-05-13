@@ -13,10 +13,12 @@ import { CategoriasService } from '../categorias/categorias.service';
 import { ProdutosService } from '../produtos/produtos.service';
 import { UsuariosService } from '../usuarios/usuarios.service';
 import { RouterModule } from '@angular/router';
+import { PaginaNaoEncontradaComponent } from './pagina-nao-encontrada.component';
 
 @NgModule({
   declarations: [
-    NavbarComponent
+    NavbarComponent,
+    PaginaNaoEncontradaComponent
   ],
   imports: [
     CommonModule,
