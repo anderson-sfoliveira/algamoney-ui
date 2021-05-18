@@ -2,7 +2,6 @@ import { LOCALE_ID, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Title } from '@angular/platform-browser';
 
-import { JwtHelperService, JwtModule } from '@auth0/angular-jwt';
 import { ToastModule } from 'primeng/toast';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { MessageService } from 'primeng/api';
@@ -26,13 +25,6 @@ import { AuthService } from '../seguranca/auth.service';
   imports: [
     CommonModule,
     RouterModule,
-    JwtModule.forRoot({
-      config: {
-        tokenGetter: () => {
-          return '';
-        }
-      }
-    }),
 
     ToastModule,
     ConfirmDialogModule
@@ -53,7 +45,6 @@ import { AuthService } from '../seguranca/auth.service';
     AuthService,
 
     Title,
-    JwtHelperService,
     {provide: LOCALE_ID, useValue: 'pt-BR'}
   ]
 })
