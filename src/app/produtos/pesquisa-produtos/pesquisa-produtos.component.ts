@@ -35,14 +35,14 @@ export class PesquisaProdutosComponent implements OnInit {
     this.carregarCategorias();
   }
 
-  carregarCategorias() {
+  carregarCategorias() {/*
     return this.categoriasService.listarTodas()
       .then(resultado => {
         this.categorias = resultado.map(c => {
           return { label: c.descricao, value: c.categoriaId };
         });
       })
-      .catch(erro => this.errorHandlerService.handle(erro));
+      .catch(erro => this.errorHandlerService.handle(erro));*/
   }
 
   pesquisar(pagina = 0) {

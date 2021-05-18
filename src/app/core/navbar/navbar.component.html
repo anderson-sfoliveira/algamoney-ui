@@ -2,15 +2,18 @@
   <div class="container">
     <div class="p-grid retira_margin_p_grid">
       <div class="p-col-12">
-        <a href="javascript:;" class="navbar-toggle" (click)="exibindoMenu = !exibindoMenu"><i class="pi pi-bars"></i></a>
+        <a href="javascript:;" class="navbar-toggle" (click)="exibindoMenu = !exibindoMenu"><i
+            class="pi pi-bars"></i></a>
       </div>
     </div>
   </div>
 
   <ul class="navbar-menu" [hidden]="!exibindoMenu">
     <li class="navbar-usuario">{{ auth.jwtPayload?.nome }}</li>
-    <li class="navbar-menuitem" routerLinkActive="ativo"><a routerLink="/categorias">Categorias</a></li>
-    <li class="navbar-menuitem" routerLinkActive="ativo"><a routerLink="/produtos">Produtos</a></li>
+    <li class="navbar-menuitem" routerLinkActive="ativo" *ngIf="auth.temPermissao('ROLE_PESQUISAR_CATEGORIA')"><a
+        routerLink="/categorias">Categorias</a></li>
+    <li class="navbar-menuitem" routerLinkActive="ativo" *ngIf="auth.temPermissao('ROLE_PESQUISAR_PRODUTO')"><a
+        routerLink="/produtos">Produtos</a></li>
     <li class="navbar-menuitem" routerLinkActive="ativo"><a href="#">Logout</a></li>
   </ul>
 </nav>

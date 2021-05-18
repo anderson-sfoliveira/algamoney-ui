@@ -9,7 +9,7 @@ import { promise } from 'selenium-webdriver';
 export class AuthService {
 
   oauthTokenURL = 'http://localhost:8080/oauth/token';
-  jwtPayload: any; // objeto com várias as propriedades do token
+  jwtPayload: any; // objeto com as propriedades do token
 
   constructor(
     private http: HttpClient,
@@ -52,5 +52,9 @@ export class AuthService {
     if (token) {
       this.armazenarToken(token);
     }
+  }
+
+  temPermissao(permissao: string) {
+    return this.jwtPayload && this.jwtPayload.authorities.includes(permissao);
   }
 }
