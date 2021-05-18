@@ -23,7 +23,7 @@ export function tokenGetter(): string {
     FormsModule,
     JwtModule.forRoot({
       config: {
-        tokenGetter,
+        tokenGetter, // Adiciona o Access Token nas chamadas HTTP
         allowedDomains: ['localhost:8080'],
         disallowedRoutes: ['http://localhost:8080/oauth/token']
       }
