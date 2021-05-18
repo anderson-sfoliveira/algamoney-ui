@@ -18,6 +18,7 @@ import { CategoriasModule } from './categorias/categorias.module';
 import { ProdutosModule } from './produtos/produtos.module';
 import { UsuariosModule } from './usuarios/usuarios.module';
 import { AppRoutingModule } from './app-routing.module';
+import { SegurancaModule } from './seguranca/seguranca.module';
 
 registerLocaleData(localePt);
 
@@ -40,7 +41,9 @@ registerLocaleData(localePt);
     CategoriasModule,
     ProdutosModule,
     UsuariosModule,
-    AppRoutingModule
+    SegurancaModule,
+
+    AppRoutingModule // Sempre ficar por último.
   ],
   bootstrap: [AppComponent]
 })
