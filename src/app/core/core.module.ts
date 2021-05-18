@@ -15,6 +15,7 @@ import { ProdutosService } from '../produtos/produtos.service';
 import { UsuariosService } from '../usuarios/usuarios.service';
 import { RouterModule } from '@angular/router';
 import { PaginaNaoEncontradaComponent } from './pagina-nao-encontrada.component';
+import { AuthService } from '../seguranca/auth.service';
 
 @NgModule({
   declarations: [
@@ -41,8 +42,9 @@ import { PaginaNaoEncontradaComponent } from './pagina-nao-encontrada.component'
     ErrorHandlerService,
     ConfirmationService,
     UsuariosService,
-    Title,
+    AuthService,
 
+    Title,
     {provide: LOCALE_ID, useValue: 'pt-BR'}
   ]
 })
