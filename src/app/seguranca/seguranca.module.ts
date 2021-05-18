@@ -10,6 +10,10 @@ import { PasswordModule } from 'primeng/password';
 import { LoginFormComponent } from './login-form/login-form.component';
 import { SegurancaRoutingModule } from './seguranca-routing.module';
 
+export function tokenGetter(): string {
+  return localStorage.getItem('token');
+}
+
 @NgModule({
   declarations: [
     LoginFormComponent
@@ -19,9 +23,9 @@ import { SegurancaRoutingModule } from './seguranca-routing.module';
     FormsModule,
     JwtModule.forRoot({
       config: {
-        tokenGetter: () => {
-          return '';
-        }
+        tokenGetter,
+        allowedDomains: ['localhost:8080'],
+        disallowedRoutes: ['http://localhost:8080/oauth/token']
       }
     }),
 
