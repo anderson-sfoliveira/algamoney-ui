@@ -12,7 +12,7 @@ export class NotAuthenticatedError { }
 export class SegurancaHttpInterceptor implements HttpInterceptor {
 
   /*
-   * Classe criada para interceptar as requisições HTTP.
+   * Classe criada para interceptar as requisições HTTP e validar o access token.
    */
 
   constructor(private auth: AuthService) { }
