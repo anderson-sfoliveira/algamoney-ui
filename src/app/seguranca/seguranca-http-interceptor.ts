@@ -6,10 +6,12 @@ import { mergeMap } from "rxjs/operators";
 
 import { AuthService } from "./auth.service";
 
+export class NotAuthenticatedError { }
+
 @Injectable()
 export class SegurancaHttpInterceptor implements HttpInterceptor {
 
-  constructor(private auth: AuthService) {}
+  constructor(private auth: AuthService) { }
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
 
@@ -28,6 +30,12 @@ export class SegurancaHttpInterceptor implements HttpInterceptor {
       return from(this.auth.obterNovoAccessToken())
         .pipe(
           mergeMap(() => {
+            /*
+             * Se não conseguir obter um novo access token será lançado o erro "NotAuthenticatedError" que é tratado na classe ErrorHandlerService.
+             */
+            if (this.auth.isAccessTokenInvalido()) {
+              throw new NotAuthenticatedError();
+            }
             req = req.clone({
               setHeaders: {
                 Authorization: `Bearer ${localStorage.getItem('token')}`

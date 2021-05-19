@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { MessageService } from 'primeng/api';
+import { NotAuthenticatedError } from '../seguranca/seguranca-http-interceptor';
 
 @Injectable({
   providedIn: 'root'
@@ -19,6 +20,11 @@ export class ErrorHandlerService {
 
     if (typeof errorResponse === 'string') {
       msg = errorResponse;
+
+    } else if (errorResponse instanceof NotAuthenticatedError) {
+      msg = 'Sua sessão expirou!';
+      this.router.navigate(['/login']);
+
     } else if (errorResponse instanceof HttpErrorResponse && errorResponse.status >= 400 && errorResponse.status <= 499) {
       msg = 'Ocorreu um erro ao processar a sua solicitação';
 
