@@ -11,6 +11,10 @@ export class NotAuthenticatedError { }
 @Injectable()
 export class SegurancaHttpInterceptor implements HttpInterceptor {
 
+  /*
+   * Classe criada para interceptar as requisições HTTP.
+   */
+
   constructor(private auth: AuthService) { }
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
