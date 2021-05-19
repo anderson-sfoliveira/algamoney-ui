@@ -14,6 +14,6 @@
         routerLink="/categorias">Categorias</a></li>
     <li class="navbar-menuitem" routerLinkActive="ativo" *ngIf="auth.temPermissao('ROLE_PESQUISAR_PRODUTO')"><a
         routerLink="/produtos">Produtos</a></li>
-    <li class="navbar-menuitem" routerLinkActive="ativo"><a href="#">Logout</a></li>
+    <li class="navbar-menuitem"><a href="javascript:;" (click)="logout()">Logout</a></li>
   </ul>
 </nav>

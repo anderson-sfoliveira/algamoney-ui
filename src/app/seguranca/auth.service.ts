@@ -9,6 +9,7 @@ import { promise } from 'selenium-webdriver';
 export class AuthService {
 
   oauthTokenURL = 'http://localhost:8080/oauth/token';
+  tokensRenokeUrl = 'http://localhost:8080/tokens/revoke';
   jwtPayload: any; // objeto com as propriedades do token
 
   constructor(
@@ -93,5 +94,18 @@ export class AuthService {
     const token = localStorage.getItem('token');
 
     return !token || this.jwtHelperService.isTokenExpired(token);
+  }
+
+  limparAccessToken() {
+    localStorage.removeItem('token');
+    this.jwtPayload = null;
+  }
+
+  logout() {
+    return this.http.delete(this.tokensRenokeUrl, { withCredentials: true })
+      .toPromise()
+      .then(() => {
+        this.limparAccessToken();
+      });
   }
 }
