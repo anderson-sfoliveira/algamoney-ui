@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 
 import * as moment from 'moment';
 
@@ -22,9 +22,6 @@ export class LancamentosService {
   constructor(private http: HttpClient) { }
 
   pesquisar(filtro: LancamentoFiltro): Promise<any> {
-    const headers = new HttpHeaders()
-    .append('Authorization', 'Basic YWRtbTRhZG1pbmlzdHJhZG9yOjEyMzQ1Ng==');
-
     let params = new HttpParams();
 
     params = params.set('page', filtro.pagina.toString());
@@ -45,7 +42,7 @@ export class LancamentosService {
       params = params.set('dataVencimentoAte', moment(filtro.dataVencimentoFim).format('YYYY-MM-DD'));
     }
 
-    return this.http.get(`${this.lancamentosURL}?resumo`, { headers, params })
+    return this.http.get(`${this.lancamentosURL}?resumo`, { params })
       .toPromise()
       .then(response => {
         const lancamentos = response['content']

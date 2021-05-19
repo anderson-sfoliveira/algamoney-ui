@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 
 // essa interface é criada para criar um "contrato" para definir quais serão os campos do filtro.
 export class UsuarioFiltro {
@@ -18,9 +18,6 @@ export class UsuariosService {
   constructor(private http: HttpClient) { }
 
   pesquisar(filtro: UsuarioFiltro): Promise<any> {
-    const headers = new HttpHeaders()
-      .append('Authorization', 'Basic YWRtbTRhZG1pbmlzdHJhZG9yOjEyMzQ1Ng==');
-
     let params = new HttpParams();
 
     params = params.set('page', filtro.pagina.toString());
@@ -32,7 +29,7 @@ export class UsuariosService {
       params = params.set('nome', filtro.nome);
     }
 
-    return this.http.get(`${this.usuariosURL}?resumo`, { headers, params })
+    return this.http.get(`${this.usuariosURL}?resumo`, { params })
       .toPromise()
       .then(response => {
         const usuarios = response['content']
@@ -45,20 +42,13 @@ export class UsuariosService {
   }
 
   excluir(id: number): Promise<void> {
-    const headers = new HttpHeaders()
-      .append('Authorization', 'Basic YWRtbTRhZG1pbmlzdHJhZG9yOjEyMzQ1Ng==');
-
-    return this.http.delete(`${this.usuariosURL}/${id}`, { headers })
+    return this.http.delete(`${this.usuariosURL}/${id}`)
       .toPromise()
       .then(() => null);
   }
 
   mudarStatus(id: number, ativo: boolean): Promise<void> {
-    const headers = new HttpHeaders()
-      .append('Authorization', 'Basic YWRtbTRhZG1pbmlzdHJhZG9yOjEyMzQ1Ng==')
-      .append('Content-Type', 'application/json');
-
-    return this.http.put(`${this.usuariosURL}/${id}/ativo`, ativo, { headers })
+    return this.http.put(`${this.usuariosURL}/${id}/ativo`, ativo)
       .toPromise()
       .then(() => null);
   }
