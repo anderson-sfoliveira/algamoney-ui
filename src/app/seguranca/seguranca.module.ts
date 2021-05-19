@@ -11,6 +11,7 @@ import { PasswordModule } from 'primeng/password';
 import { LoginFormComponent } from './login-form/login-form.component';
 import { SegurancaRoutingModule } from './seguranca-routing.module';
 import { SegurancaHttpInterceptor } from './seguranca-http-interceptor';
+import { AuthGuard } from './auth.guard';
 
 export function tokenGetter(): string {
   return localStorage.getItem('token');
@@ -43,7 +44,8 @@ export function tokenGetter(): string {
       provide: HTTP_INTERCEPTORS,
       useClass: SegurancaHttpInterceptor,
       multi: true
-    }
+    },
+    AuthGuard
   ]
 })
 export class SegurancaModule { }
