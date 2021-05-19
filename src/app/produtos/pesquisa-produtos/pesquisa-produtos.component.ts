@@ -6,6 +6,7 @@ import { ConfirmationService, LazyLoadEvent, MessageService } from 'primeng/api'
 import { ProdutosService, ProdutoFiltro } from '../produtos.service';
 import { ErrorHandlerService } from 'src/app/core/error-handler.service';
 import { CategoriasService } from 'src/app/categorias/categorias.service';
+import { AuthService } from 'src/app/seguranca/auth.service';
 
 @Component({
   selector: 'app-pesquisa-produtos',
@@ -26,7 +27,8 @@ export class PesquisaProdutosComponent implements OnInit {
     private confirmationService: ConfirmationService,
     private errorHandlerService: ErrorHandlerService,
     private categoriasService: CategoriasService,
-    private title: Title
+    private title: Title,
+    public auth: AuthService
   ) { }
 
   ngOnInit() {

@@ -55,7 +55,8 @@
                             <a pButton class="espaco-icones" icon="pi pi-pencil" pTooltip="Editar" tooltipPosition="top"
                                 [routerLink]="['/produtos', prod.produtoId]"></a>
                             <button pButton class="espaco-icones" icon="pi pi-trash" pTooltip="Excluir"
-                                tooltipPosition="top" (click)="confirmaExclusao(prod)"></button>
+                                tooltipPosition="top" (click)="confirmaExclusao(prod)"
+                                [disabled]="!auth.temPermissao('ROLE_REMOVER_PRODUTO')"></button>
                         </td>
                     </tr>
                 </ng-template>
