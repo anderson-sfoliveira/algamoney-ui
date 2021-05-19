@@ -77,4 +77,11 @@ export class AuthService {
         return Promise.resolve(null);
       })
   }
+
+  isAccessTokenInvalido() {
+    console.log('Validando access token.');
+    const token = localStorage.getItem('token');
+
+    return !token || this.jwtHelperService.isTokenExpired(token);
+  }
 }
