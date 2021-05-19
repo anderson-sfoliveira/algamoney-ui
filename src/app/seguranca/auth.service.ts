@@ -25,7 +25,7 @@ export class AuthService {
 
     const body = `username=${usuario}&password=${senha}&grant_type=password`;
 
-    return this.http.post<any>(this.oauthTokenURL, body, { headers, withCredentials: true })
+    return this.http.post<any>(this.oauthTokenURL, body, { headers, withCredentials: true }) // withCredentials: true  =>  faz com que o navegador envie o cookie na requisição.
       .toPromise()
       .then(response => {
         this.armazenarToken(response.access_token);
@@ -65,7 +65,7 @@ export class AuthService {
 
     const body = 'grant_type=refresh_token';
 
-    return this.http.post<any>(this.oauthTokenURL, body, { headers, withCredentials: true })
+    return this.http.post<any>(this.oauthTokenURL, body, { headers, withCredentials: true }) // withCredentials: true  =>  faz com que o navegador envie o cookie na requisição.
       .toPromise()
       .then(response => {
         this.armazenarToken(response.access_token);
