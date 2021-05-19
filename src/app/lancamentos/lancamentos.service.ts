@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 
 import * as moment from 'moment';
+import { environment } from 'src/environments/environment';
 
 // essa interface é criada para criar um "contrato" para definir quais serão os campos do filtro.
 export class LancamentoFiltro {
@@ -17,9 +18,11 @@ export class LancamentoFiltro {
 })
 export class LancamentosService {
 
-  lancamentosURL = 'http://localhost:8080/lancamentos';
+  lancamentosURL: string;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {
+    this.lancamentosURL = `${environment.apiURL}/lancamentos`;
+  }
 
   pesquisar(filtro: LancamentoFiltro): Promise<any> {
     let params = new HttpParams();

@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Categoria } from '../core/model';
+import { environment } from 'src/environments/environment';
 
 // essa interface é criada para criar um "contrato" para definir quais serão os campos do filtro.
 export class CategoriaFiltro {
@@ -14,9 +15,11 @@ export class CategoriaFiltro {
 })
 export class CategoriasService {
 
-  categoriasURL = 'http://localhost:8080/categorias';
+  categoriasURL: string;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {
+    this.categoriasURL = `${environment.apiURL}/categorias`;
+  }
 
   pesquisar(filtro: CategoriaFiltro): Promise<any> {
     let params = new HttpParams();

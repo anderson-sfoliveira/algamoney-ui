@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Produto } from '../core/model';
+import { environment } from 'src/environments/environment';
 
 // essa interface é criada para criar um "contrato" para definir quais serão os campos do filtro.
 export class ProdutoFiltro {
@@ -14,9 +15,11 @@ export class ProdutoFiltro {
 })
 export class ProdutosService {
 
-  produtosURL = 'http://localhost:8080/produtos';
+  produtosURL: string;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {
+    this.produtosURL = `${environment.apiURL}/produtos`;
+  }
 
   pesquisar(filtro: ProdutoFiltro): Promise<any> {
     let params = new HttpParams();

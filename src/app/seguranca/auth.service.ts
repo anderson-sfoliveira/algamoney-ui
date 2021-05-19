@@ -1,15 +1,16 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { JwtHelperService } from '@auth0/angular-jwt';
-import { promise } from 'selenium-webdriver';
+
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  oauthTokenURL = 'http://localhost:8080/oauth/token';
-  tokensRenokeUrl = 'http://localhost:8080/tokens/revoke';
+  oauthTokenURL: string;
+  tokensRenokeUrl: string;
   jwtPayload: any; // objeto com as propriedades do token
 
   constructor(
@@ -17,6 +18,9 @@ export class AuthService {
     private jwtHelperService: JwtHelperService
   ) {
     this.carregarToken();
+    
+    this.oauthTokenURL = `${environment.apiURL}/oauth/token`;
+    this.tokensRenokeUrl = `${environment.apiURL}/tokens/revoke`;
   }
 
   login(usuario: string, senha: string): Promise<void> {
