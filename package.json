@@ -3,12 +3,12 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "node server.js", // irá rodar o servidor javascript "Express".
+    "start": "node server.js",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "heroku-postbuild": "ng build --prod" // configurando a propriedade que o heroku utilizará para fazer o build.
+    "heroku-postbuild": "ng build --prod"
   },
   "private": true,
   "dependencies": {
@@ -31,8 +31,6 @@
     "tslib": "^2.2.0",
     "zone.js": "~0.11.4",
 
-    // O Heroku faz o build da aplicação porém não instala as dependências de desenvolvimento da propriedade "devDependencies",
-    // por esse motivo colocaremos todas as dependências aqui na propriedade "dependencies".
     "@angular-devkit/build-angular": "~0.1102.12",
     "@angular/cli": "~11.2.12",
     "@angular/compiler-cli": "~11.2.13",
