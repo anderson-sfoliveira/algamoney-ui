@@ -19,6 +19,8 @@ export class SegurancaHttpInterceptor implements HttpInterceptor {
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
 
+    console.log('Requisição HTTP interceptada para validar o token...');
+
     /*
      * Primeiramente fazemos duas validações, uma pra saber se não estamos nos referindo ao path "/oauth/token" e
      * outra para sabermos se o nosso token está inválido.
@@ -38,8 +40,11 @@ export class SegurancaHttpInterceptor implements HttpInterceptor {
              * Se não conseguir obter um novo access token será lançado o erro "NotAuthenticatedError" que é tratado na classe ErrorHandlerService.
              */
             if (this.auth.isAccessTokenInvalido()) {
+              console.log('Não gerou o token.');
               throw new NotAuthenticatedError();
             }
+
+            console.log('Gerou o token!!!');
             req = req.clone({
               setHeaders: {
                 Authorization: `Bearer ${localStorage.getItem('token')}`

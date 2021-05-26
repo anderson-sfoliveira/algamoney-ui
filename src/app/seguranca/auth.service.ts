@@ -24,6 +24,8 @@ export class AuthService {
   }
 
   login(usuario: string, senha: string): Promise<void> {
+    console.log('Login...');
+
     const headers = new HttpHeaders()
       .append('Authorization', 'Basic YW5ndWxhcjpAbmd1bEByMA==')
       .append('Content-Type', 'application/x-www-form-urlencoded');
@@ -74,6 +76,8 @@ export class AuthService {
   }
 
   obterNovoAccessToken(): Promise<void> {
+    console.log('Navegação com access token inválido. Obtendo novo token...');
+
     const headers = new HttpHeaders()
       .append('Authorization', 'Basic YW5ndWxhcjpAbmd1bEByMA==')
       .append('Content-Type', 'application/x-www-form-urlencoded');
