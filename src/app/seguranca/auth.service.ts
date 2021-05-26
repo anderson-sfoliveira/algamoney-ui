@@ -48,6 +48,28 @@ export class AuthService {
       });
   }
 
+  obterNovoAccessToken(): Promise<void> {
+    console.log('Access token inválido. Obtendo novo token...');
+
+    const headers = new HttpHeaders()
+      .append('Authorization', 'Basic YW5ndWxhcjpAbmd1bEByMA==')
+      .append('Content-Type', 'application/x-www-form-urlencoded');
+
+    const body = 'grant_type=refresh_token';
+
+    return this.http.post<any>(this.oauthTokenURL, body, { headers, withCredentials: true }) // withCredentials: true  =>  faz com que o navegador envie o cookie na requisição.
+      .toPromise()
+      .then(response => {
+        this.armazenarToken(response.access_token);
+        console.log('Novo access token criado!');
+        return Promise.resolve(null);
+      })
+      .catch(response => {
+        console.log('Erro ao renovar token.', response);
+        return Promise.resolve(null);
+      })
+  }
+
   private armazenarToken(token: string) {
     this.jwtPayload = this.jwtHelperService.decodeToken(token);
     localStorage.setItem('token', token);
@@ -73,28 +95,6 @@ export class AuthService {
     }
 
     return false;
-  }
-
-  obterNovoAccessToken(): Promise<void> {
-    console.log('Access token inválido. Obtendo novo token...');
-
-    const headers = new HttpHeaders()
-      .append('Authorization', 'Basic YW5ndWxhcjpAbmd1bEByMA==')
-      .append('Content-Type', 'application/x-www-form-urlencoded');
-
-    const body = 'grant_type=refresh_token';
-
-    return this.http.post<any>(this.oauthTokenURL, body, { headers, withCredentials: true }) // withCredentials: true  =>  faz com que o navegador envie o cookie na requisição.
-      .toPromise()
-      .then(response => {
-        this.armazenarToken(response.access_token);
-        console.log('Novo access token criado!');
-        return Promise.resolve(null);
-      })
-      .catch(response => {
-        console.log('Erro ao renovar token.', response);
-        return Promise.resolve(null);
-      })
   }
 
   isAccessTokenInvalido() {

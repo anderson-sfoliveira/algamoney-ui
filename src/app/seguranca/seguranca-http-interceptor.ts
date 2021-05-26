@@ -21,6 +21,7 @@ export class SegurancaHttpInterceptor implements HttpInterceptor {
 
     console.log('Requisição HTTP interceptada para validar o token...');
     console.log(req.url);
+    console.log(`Access Token do localStorage = ${localStorage.getItem('token')}`);
     console.log(req.headers.get('Authorization'));
 
     /*
