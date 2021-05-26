@@ -20,10 +20,7 @@ export class SegurancaHttpInterceptor implements HttpInterceptor {
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
 
     console.log('Requisição HTTP interceptada para validar o token...');
-
-    if (req.url.includes('/oauth/token')) {
-      console.log('URL /oauth/token');
-    }
+    console.log(req.url);
 
     /*
      * Primeiramente fazemos duas validações, uma pra saber se não estamos nos referindo ao path "/oauth/token" e
