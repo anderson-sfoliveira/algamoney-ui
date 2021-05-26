@@ -22,7 +22,7 @@ export class SegurancaHttpInterceptor implements HttpInterceptor {
     console.log('Requisição HTTP interceptada para validar o token...');
     console.log(req.url);
     console.log(`Access Token do localStorage = ${localStorage.getItem('token')}`);
-    console.log(req.headers.get('Authorization'));
+    console.log(`Authorization = ${req.headers.get('Authorization')}`);
 
     /*
      * Primeiramente fazemos duas validações, uma pra saber se não estamos nos referindo ao path "/oauth/token" e
