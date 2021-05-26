@@ -76,7 +76,7 @@ export class AuthService {
   }
 
   obterNovoAccessToken(): Promise<void> {
-    console.log('Navegação com access token inválido. Obtendo novo token...');
+    console.log('Access token inválido. Obtendo novo token...');
 
     const headers = new HttpHeaders()
       .append('Authorization', 'Basic YW5ndWxhcjpAbmd1bEByMA==')

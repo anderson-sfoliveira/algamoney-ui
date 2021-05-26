@@ -21,6 +21,10 @@ export class SegurancaHttpInterceptor implements HttpInterceptor {
 
     console.log('Requisição HTTP interceptada para validar o token...');
 
+    if (req.url.includes('/oauth/token')) {
+      console.log('URL /oauth/token');
+    }
+
     /*
      * Primeiramente fazemos duas validações, uma pra saber se não estamos nos referindo ao path "/oauth/token" e
      * outra para sabermos se o nosso token está inválido.
@@ -33,6 +37,8 @@ export class SegurancaHttpInterceptor implements HttpInterceptor {
      *    Aqui checamos se nosso token está inválido, e se estiver, precisamos obter um novo, através do "/oauth/token"
      */
     if (!req.url.includes('/oauth/token') && this.auth.isAccessTokenInvalido()) {
+      console.log('Token inválido! Vamos tentar gerar um novo.');
+
       return from(this.auth.obterNovoAccessToken())
         .pipe(
           mergeMap(() => {
