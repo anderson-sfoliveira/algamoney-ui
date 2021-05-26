@@ -15,7 +15,7 @@ import { AuthGuard } from './auth.guard';
 import { environment } from 'src/environments/environment';
 
 export function tokenGetter(): string {
-  console.log(`Access Token do localStorage = ${localStorage.getItem('token')}`);
+  console.log(`Access Token do localStorage (SegurancaModule) = ${localStorage.getItem('token')}`);
   return localStorage.getItem('token');
 }
 
@@ -29,8 +29,10 @@ export function tokenGetter(): string {
     JwtModule.forRoot({
       config: {
         tokenGetter, // Adiciona o Access Token nas chamadas HTTP
-        allowedDomains: ['localhost:8080'],
-        disallowedRoutes: ['http://localhost:8080/oauth/token']
+        allowedDomains: ['https://brl-empresa-api.herokuapp.com'],
+        disallowedRoutes: ['https://brl-empresa-api.herokuapp.com/oauth/token']
+//        allowedDomains: ['localhost:8080'],
+//        disallowedRoutes: ['http://localhost:8080/oauth/token']
 //        allowedDomains: [`${environment.apiURL}`],
 //        disallowedRoutes: [`${environment.apiURL}/oauth/token`]
       }
