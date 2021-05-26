@@ -28,11 +28,13 @@ export function tokenGetter(): string {
     FormsModule,
     JwtModule.forRoot({
       config: {
-        tokenGetter, // Adiciona o Access Token nas chamadas HTTP
+        tokenGetter: tokenGetter, // Adiciona o Access Token nas chamadas HTTP
+        allowedDomains: environment.tokenWhitelistedDomains,
+        disallowedRoutes: environment.tokenBlacklistedRoutes
 //        allowedDomains: ['https://brl-empresa-api.herokuapp.com'],
 //        disallowedRoutes: ['https://brl-empresa-api.herokuapp.com/oauth/token']
-        allowedDomains: ['localhost:8080'],
-        disallowedRoutes: ['http://localhost:8080/oauth/token']
+//        allowedDomains: ['localhost:8080'],
+//        disallowedRoutes: ['http://localhost:8080/oauth/token']
 //        allowedDomains: [`${environment.apiURL}`],
 //        disallowedRoutes: [`${environment.apiURL}/oauth/token`]
       }
