@@ -15,6 +15,7 @@ import { AuthGuard } from './auth.guard';
 import { environment } from 'src/environments/environment';
 
 export function tokenGetter(): string {
+  console.log(`Access Token do localStorage = ${localStorage.getItem('token')}`);
   return localStorage.getItem('token');
 }
 
