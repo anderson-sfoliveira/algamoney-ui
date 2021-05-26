@@ -35,6 +35,7 @@ export class AuthGuard implements CanActivate {
             return false;
           }
 
+          // oliveira ,,,, quando obtem um novo token não valida a permissão do usuário. AVALIAR
           return true;
         });
     } else if (route.data.roles && !this.auth.temQualquerPermissao(route.data.roles)) {
