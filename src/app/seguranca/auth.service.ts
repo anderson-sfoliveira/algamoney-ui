@@ -49,7 +49,7 @@ export class AuthService {
   }
 
   obterNovoAccessToken(): Promise<void> {
-    console.log('Access token inválido. Obtendo novo token...');
+    // console.log('Access token inválido. Obtendo novo token...');
 
     const headers = new HttpHeaders()
       .append('Authorization', 'Basic YW5ndWxhcjpAbmd1bEByMA==')
@@ -61,11 +61,11 @@ export class AuthService {
       .toPromise()
       .then(response => {
         this.armazenarToken(response.access_token);
-        console.log('Novo access token criado!');
+        // console.log('Novo access token criado!');
         return Promise.resolve(null);
       })
       .catch(response => {
-        console.log('Erro ao renovar token.', response);
+        // console.log('Erro ao renovar token.', response);
         return Promise.resolve(null);
       })
   }
