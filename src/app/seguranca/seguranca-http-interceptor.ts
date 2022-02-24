@@ -36,7 +36,7 @@ export class SegurancaHttpInterceptor implements HttpInterceptor {
      *    Aqui checamos se nosso token está inválido, e se estiver, precisamos obter um novo, através do "/oauth/token"
      */
     if (!req.url.includes('/oauth/token') && this.auth.isAccessTokenInvalido()) {
-      console.log('Token inválido! Vamos tentar gerar um novo.');
+      // console.log('Token inválido! Vamos tentar gerar um novo.');
 
       return from(this.auth.obterNovoAccessToken())
         .pipe(
@@ -45,7 +45,7 @@ export class SegurancaHttpInterceptor implements HttpInterceptor {
              * Se não conseguir obter um novo access token será lançado o erro "NotAuthenticatedError" que é tratado na classe ErrorHandlerService.
              */
             if (this.auth.isAccessTokenInvalido()) {
-              console.log('Não gerou o token.');
+              // console.log('Não gerou o token.');
               throw new NotAuthenticatedError();
             }
 
