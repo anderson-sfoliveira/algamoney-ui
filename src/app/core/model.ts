@@ -1,17 +1,33 @@
-export class Conta {
-    contaId = 1;
-}
-export class Categoria {
-    categoriaId: number;
-    conta = new Conta();
-    descricao: string;
+export class Endereco {
+  logradouro?: string;
+  numero?: string;
+  complemento?: string;
+  bairro?: string;
+  cep?: string;
+  cidade?: string;
+  estado?: string;
 }
 
-export class Produto {
-    produtoId: number;
-    conta = new Conta();
-    nome: string;
-    descricao: string;
-    categoria = new Categoria();
-    preco: number;
+export class Pessoa {
+  codigo?: number;
+  nome?: string;
+  endereco = new Endereco();
+  ativo = true;
+}
+
+export class Categoria {
+  codigo?: number;
+  descricao: string;
+}
+
+export class Lancamento {
+  codigo?: number;
+  tipo = 'RECEITA';
+  descricao?: string;
+  dataVencimento?: Date;
+  dataPagamento?: Date;
+  valor?: number;
+  observacao?: string;
+  pessoa = new Pessoa();
+  categoria = new Categoria();
 }

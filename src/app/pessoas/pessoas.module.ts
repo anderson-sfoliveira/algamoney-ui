@@ -1,23 +1,37 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
-import { TableModule } from 'primeng/table';
 import { ButtonModule } from 'primeng/button';
+import { InputMaskModule } from 'primeng/inputmask';
+import { InputTextModule } from 'primeng/inputtext';
+import { TableModule } from 'primeng/table';
+import { TooltipModule } from 'primeng/tooltip';
+import { SharedModule } from '../shared/shared.module';
+import { PessoasRoutingModule } from './pessoas-routing.module';
 
-import { CadastroPessoasComponent } from './cadastro-pessoas/cadastro-pessoas.component';
+import { PessoaCadastroComponent } from './pessoa-cadastro/pessoa-cadastro.component';
+import { PessoasPesquisaComponent } from './pessoas-pesquisa/pessoas-pesquisa.component';
+
 
 @NgModule({
   declarations: [
-    CadastroPessoasComponent
+    PessoaCadastroComponent,
+    PessoasPesquisaComponent
   ],
   imports: [
     CommonModule,
+    FormsModule,
 
+    InputTextModule,
+    ButtonModule,
     TableModule,
-    ButtonModule
+    TooltipModule,
+    InputMaskModule,
+
+    SharedModule,
+    PessoasRoutingModule
   ],
-  exports: [
-    CadastroPessoasComponent
-  ]
+  exports: []
 })
 export class PessoasModule { }
