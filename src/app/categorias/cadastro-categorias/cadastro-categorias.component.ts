@@ -30,15 +30,15 @@ export class CadastroCategoriasComponent implements OnInit {
   ngOnInit(): void {
     this.title.setTitle('Nova categoria');
 
-    const categoriaId = this.route.snapshot.params['id'];
+    const codigo = this.route.snapshot.params['id'];
 
-    if (categoriaId) {
-      this.carregarCategoria(categoriaId);
+    if (codigo) {
+      this.carregarCategoria(codigo);
     }
   }
 
   get editando() {
-    return Boolean(this.categoria.categoriaId);
+    return Boolean(this.categoria.codigo);
   }
 
   carregarCategoria(id: number) {
@@ -65,7 +65,7 @@ export class CadastroCategoriasComponent implements OnInit {
 
         // form.reset();
         // this.categoria = new Categoria();
-        this.router.navigate(['/categorias', resultado.categoriaId]);
+        this.router.navigate(['/categorias', resultado.codigo]);
       })
       .catch(erro => this.errorHandlerService.handle(erro));
   }
@@ -83,7 +83,7 @@ export class CadastroCategoriasComponent implements OnInit {
 
   novo(form: NgForm) {
     form.reset();
-    
+
     setTimeout(function() {
       this.categoria = new Categoria();
     }.bind(this), 1);
