@@ -12,8 +12,6 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { ErrorHandlerService } from './error-handler.service';
 import { LancamentosService } from '../lancamentos/lancamentos.service';
 import { CategoriasService } from '../categorias/categorias.service';
-import { ProdutosService } from '../produtos/produtos.service';
-import { UsuariosService } from '../usuarios/usuarios.service';
 import { PaginaNaoEncontradaComponent } from './pagina-nao-encontrada.component';
 import { AuthService } from '../seguranca/auth.service';
 import { NaoAutorizadoComponent } from './nao-autorizado.component';
@@ -39,11 +37,9 @@ import { NaoAutorizadoComponent } from './nao-autorizado.component';
   providers: [
     LancamentosService,
     CategoriasService,
-    ProdutosService,
     MessageService,
     ErrorHandlerService,
     ConfirmationService,
-    UsuariosService,
     AuthService,
 
     Title,
