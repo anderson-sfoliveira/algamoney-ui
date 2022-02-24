@@ -19,13 +19,13 @@ import { CurrencyMaskModule } from 'ng2-currency-mask';
 
 import { SharedModule } from '../shared/shared.module';
 import { LancamentosPesquisaComponent } from './lancamentos-pesquisa/lancamentos-pesquisa.component';
-import { LancamentosCadastroComponent } from './lancamentos-cadastro/lancamentos-cadastro.component';
 import { LancamentosRoutingModule } from './lancamentos-routing.module';
+import { LancamentoCadastroComponent } from './lancamento-cadastro/lancamento-cadastro.component';
 
 @NgModule({
   declarations: [
     LancamentosPesquisaComponent,
-    LancamentosCadastroComponent
+    LancamentoCadastroComponent
   ],
   imports: [
     CommonModule,
@@ -53,7 +53,7 @@ import { LancamentosRoutingModule } from './lancamentos-routing.module';
   ],
   exports: [
     LancamentosPesquisaComponent,
-    LancamentosCadastroComponent
+    LancamentoCadastroComponent
   ]
 })
 export class LancamentosModule { }
