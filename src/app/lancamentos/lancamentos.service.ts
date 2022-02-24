@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 
 import * as moment from 'moment';
 import { environment } from 'src/environments/environment';
@@ -61,36 +61,22 @@ export class LancamentosService {
   }
 
   excluir(codigo: number): Promise<void> {
-    const headers = new HttpHeaders()
-      .append('Authorization', 'Basic YWRtaW5AYWxnYW1vbmV5LmNvbTphZG1pbg==');
-
-    return this.http.delete<void>(`${this.lancamentosURL}/${codigo}`, { headers })
+    return this.http.delete<void>(`${this.lancamentosURL}/${codigo}`)
       .toPromise();
   }
 
   adicionar(lancamento: Lancamento): Promise<Lancamento> {
-    const headers = new HttpHeaders()
-      .append('Authorization', 'Basic YWRtaW5AYWxnYW1vbmV5LmNvbTphZG1pbg==')
-      .append('Content-Type', 'application/json');
-
-    return this.http.post<Lancamento>(this.lancamentosURL, lancamento, { headers })
+    return this.http.post<Lancamento>(this.lancamentosURL, lancamento)
       .toPromise();
   }
 
   atualizar(lancamento: Lancamento): Promise<Lancamento> {
-    const headers = new HttpHeaders()
-      .append('Authorization', 'Basic YWRtaW5AYWxnYW1vbmV5LmNvbTphZG1pbg==')
-      .append('Content-Type', 'application/json');
-
-    return this.http.put<Lancamento>(`${this.lancamentosURL}/${lancamento.codigo}`, lancamento, { headers })
+    return this.http.put<Lancamento>(`${this.lancamentosURL}/${lancamento.codigo}`, lancamento)
       .toPromise();
   }
 
   buscarPorCodigo(codigo: number): Promise<Lancamento> {
-    const headers = new HttpHeaders()
-      .append('Authorization', 'Basic YWRtaW5AYWxnYW1vbmV5LmNvbTphZG1pbg==');
-
-    return this.http.get(`${this.lancamentosURL}/${codigo}`, { headers })
+    return this.http.get(`${this.lancamentosURL}/${codigo}`)
       .toPromise()
       .then((response:any) => {
         this.converterStringsParaDatas([response]);
