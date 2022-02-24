@@ -1,11 +1,11 @@
 <div class="container">
     <form #pessoasForm="ngForm" autocomplete="off" (ngSubmit)="salvar(pessoasForm)">
-  
-      <div class="p-grid">
+
+      <div class="p-grid retira_margin_p_grid">
         <div class="p-col-12">
           <h1>{{ editando ? 'Edição de' : 'Nova' }} Pessoa</h1>
         </div>
-  
+
         <div class="p-col-12 p-fluid">
           <label>Nome</label>
           <input pInputText type="text" name="nome"
@@ -16,7 +16,7 @@
           <app-message [control]="nome.control" error="minlength"
             text="Mínimo de {{ nome.errors?.minlength?.requiredLength }} caracteres"></app-message>
         </div>
-  
+
         <div class="p-col-12 p-md-9 p-fluid">
           <label>Logradouro</label>
           <input pInputText type="text" name="logradouro"
@@ -25,7 +25,7 @@
           <app-message [control]="logradouro.control" error="required"
             text="Informe o logradouro"></app-message>
         </div>
-  
+
         <div class="p-col-12 p-md-3 p-fluid">
           <label>Número</label>
           <input pInputText type="text" name="numero"
@@ -34,22 +34,22 @@
           <app-message [control]="numero.control" error="required"
             text="Informe o número"></app-message>
         </div>
-  
+
         <div class="p-col-12 p-md-4 p-fluid">
           <label>Complemento</label>
-          <input pInputText type="text" name="complemento" 
-          [(ngModel)]="pessoa.endereco.complemento">        
+          <input pInputText type="text" name="complemento"
+          [(ngModel)]="pessoa.endereco.complemento">
         </div>
-  
+
         <div class="p-col-12 p-md-4 p-fluid">
           <label>Bairro</label>
           <input pInputText type="text" name="bairro"
             [(ngModel)]="pessoa.endereco.bairro" #bairro="ngModel" required>
-  
+
           <app-message [control]="bairro.control" error="required"
             text="Informe o bairro"></app-message>
         </div>
-  
+
         <div class="p-col-12 p-md-4 p-fluid">
           <label>CEP</label>
           <p-inputMask name="cep" mask="99.999-999"
@@ -58,7 +58,7 @@
           <app-message [control]="cep.control" error="required"
             text="Informe o CEP"></app-message>
         </div>
-    
+
         <div class="p-col-12 p-md-6 p-fluid">
           <label>Cidade</label>
           <input pInputText type="text" name="cidade"
@@ -81,11 +81,11 @@
           <button pButton type="submit" label="Salvar" [disabled]="pessoasForm.invalid"></button>
           <button pButton type="button" label="Novo" class="p-button-info"
             (click)="nova(pessoasForm)"></button>
-  
+
             <a [routerLink]="['/pessoas']">Voltar para a pesquisa</a>
         </div>
       </div>
-  
+
     </form>
-  
+
   </div>

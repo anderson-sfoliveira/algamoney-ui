@@ -1,7 +1,7 @@
 <div class="container">
 
   <!-- Pesquisa -->
-  <div class="p-grid">
+  <div class="p-grid retira_margin_p_grid">
     <form  autocomplete="off" (ngSubmit)="pesquisar()">
       <div class="p-col-12">
         <h1>Pessoas</h1>
@@ -19,7 +19,7 @@
   </div>
 
   <!-- Lista de pessoas -->
-  <div class="p-grid">
+  <div class="p-grid retira_margin_p_grid">
     <div class="p-col-12">
       <p-table [value]="pessoas" [responsive]="true"
         [paginator]="true" [rows]="filtro.itensPorPagina"

@@ -24,7 +24,7 @@ export class AuthService {
   }
 
   login(usuario: string, senha: string): Promise<void> {
-    console.log('Login...');
+    // console.log('Login...');
 
     const headers = new HttpHeaders()
       .append('Authorization', 'Basic YW5ndWxhcjpAbmd1bEByMA==')
