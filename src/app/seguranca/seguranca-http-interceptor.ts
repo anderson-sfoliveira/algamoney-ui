@@ -49,7 +49,7 @@ export class SegurancaHttpInterceptor implements HttpInterceptor {
               throw new NotAuthenticatedError();
             }
 
-            console.log('Gerou o token!!!');
+            // console.log('Gerou o token!!!');
             req = req.clone({
               setHeaders: {
                 Authorization: `Bearer ${localStorage.getItem('token')}`
