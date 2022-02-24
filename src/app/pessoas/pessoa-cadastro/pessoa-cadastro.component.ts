@@ -78,8 +78,8 @@ export class PessoaCadastroComponent implements OnInit {
 
   nova(form: NgForm) {
     form.reset();
-    
-    this.router.navigate(['/pessoas/nova']);
+
+    this.router.navigate(['/pessoas/novo']);
   }
 
   atualizarTituloEdicao() {

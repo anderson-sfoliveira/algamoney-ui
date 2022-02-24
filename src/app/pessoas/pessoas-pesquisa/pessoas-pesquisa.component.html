@@ -2,16 +2,16 @@
 
   <!-- Pesquisa -->
   <div class="p-grid">
-    <form  autocomplete="off" (ngSubmit)="pesquisar()">        
+    <form  autocomplete="off" (ngSubmit)="pesquisar()">
       <div class="p-col-12">
         <h1>Pessoas</h1>
       </div>
-  
+
       <div class="p-col-12 p-fluid">
         <label>Nome</label>
         <input pInputText type="text" name="nome" [(ngModel)]="filtro.nome">
       </div>
-  
+
       <div class="p-col-12">
         <button pButton type="submit" label="Pesquisar"></button>
       </div>
@@ -63,14 +63,14 @@
                 [routerLink]="['/pessoas', pessoa.codigo]"></a>
               <button pButton icon="pi pi-trash" pTooltip="Excluir" tooltipPosition="top"
                 (click)="confirmarExclusao(pessoa)"></button>
-            </td> 
+            </td>
           </tr>
         </ng-template>
 
         <ng-template pTemplate="emptymessage">
           <tr>
             <td colspan="5">
-              Nenhuma pessoa encontrada
+              Pesquisa ainda não está funcionando. Mas você pode cadastrar uma nova pessoa!
             </td>
           </tr>
         </ng-template>
@@ -78,8 +78,8 @@
     </div>
 
     <div class="p-col-12">
-      <a pButton label="Nova Pessoa"></a>
+      <a pButton label="Nova Pessoa" routerLink="/pessoas/novo"></a>
     </div>
   </div>
-  
+
 </div>

@@ -7,12 +7,12 @@ import { PesquisaCategoriasComponent } from './pesquisa-categorias/pesquisa-cate
 
 // array de configurações de rotas
 const routes: Routes = [
-  // {
-  //   path: 'categorias',
-  //   component: PesquisaCategoriasComponent,
-  //   canActivate: [AuthGuard],
-  //   data: { roles: ['ROLE_PESQUISAR_CATEGORIA'] } // poderia ter mais de uma "role" pois é um array
-  // },
+  {
+    path: 'categorias',
+    component: PesquisaCategoriasComponent,
+    canActivate: [AuthGuard],
+    data: { roles: ['ROLE_PESQUISAR_CATEGORIA'] } // poderia ter mais de uma "role" pois é um array
+  },
   {
     path: 'categorias/novo',
     component: CadastroCategoriasComponent,
