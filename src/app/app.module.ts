@@ -7,7 +7,6 @@ import localePt from '@angular/common/locales/pt';
 
 import { AppComponent } from './app.component';
 
-import { NavegacaoModule } from './navegacao/navegacao.module';
 import { LancamentosModule } from './lancamentos/lancamentos.module';
 import { CoreModule } from './core/core.module';
 import { PessoasModule } from './pessoas/pessoas.module';
@@ -26,7 +25,6 @@ registerLocaleData(localePt);
     BrowserAnimationsModule,
     HttpClientModule,
 
-    NavegacaoModule,
     LancamentosModule,
     CoreModule,
     PessoasModule,
