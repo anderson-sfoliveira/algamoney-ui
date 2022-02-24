@@ -17,7 +17,7 @@ export class Pessoa {
 
 export class Categoria {
   codigo?: number;
-  descricao: string;
+  nome: string;
 }
 
 export class Lancamento {

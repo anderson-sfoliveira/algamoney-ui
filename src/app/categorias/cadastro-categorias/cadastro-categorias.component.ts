@@ -92,6 +92,6 @@ export class CadastroCategoriasComponent implements OnInit {
   }
 
   atualizarTituloEdicao() {
-    this.title.setTitle(`Edição categoria: ${this.categoria.descricao}`);
+    this.title.setTitle(`Edição categoria: ${this.categoria.nome}`);
   }
 }

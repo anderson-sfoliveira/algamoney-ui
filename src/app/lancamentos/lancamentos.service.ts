@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
-import { DatePipe } from '@angular/common';
 
 import * as moment from 'moment';
 import { environment } from 'src/environments/environment';
@@ -23,8 +22,7 @@ export class LancamentosService {
   lancamentosURL: string;
 
   constructor(
-    private http: HttpClient,
-    private datePipe: DatePipe
+    private http: HttpClient
   ) {
     this.lancamentosURL = `${environment.apiURL}/lancamentos`;
   }

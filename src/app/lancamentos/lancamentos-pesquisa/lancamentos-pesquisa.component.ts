@@ -1,6 +1,12 @@
-import { LancamentoFiltro, LancamentosService } from './../lancamentos.service';
-import { Component, OnInit } from '@angular/core';
-import { LazyLoadEvent } from 'primeng/api';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { Title } from '@angular/platform-browser';
+
+import { ConfirmationService, LazyLoadEvent, MessageService } from 'primeng/api';
+import { Table } from 'primeng/table';
+import { ErrorHandlerService } from 'src/app/core/error-handler.service';
+
+import { LancamentosService, LancamentoFiltro } from './../lancamentos.service';
+import { AuthService } from './../../seguranca/auth.service';
 
 @Component({
   selector: 'app-lancamentos-pesquisa',
@@ -9,28 +15,67 @@ import { LazyLoadEvent } from 'primeng/api';
 })
 export class LancamentosPesquisaComponent implements OnInit {
 
-  totalRegistros = 0;
-  filtro = new LancamentoFiltro();
-  lancamentos = [];
 
-  constructor(private lancamentosService: LancamentosService) { }
+  filtro = new LancamentoFiltro();
+
+  totalRegistros: number = 0
+
+  lancamentos: any[] = [] ;
+  @ViewChild('tabela') grid!: Table;
+
+  constructor(
+    private auth: AuthService,
+    private lancamentosService: LancamentosService,
+    private messageService: MessageService,
+    private errorHandler: ErrorHandlerService,
+    private confirmationService: ConfirmationService,
+    private title: Title
+  ) {}
 
   ngOnInit() {
-//    this.pesquisar();
+    this.title.setTitle('Pesquisa de Lançamentos');
   }
 
-  pesquisar(pagina = 0) {
+  pesquisar(pagina: number = 0): void {
     this.filtro.pagina = pagina;
 
     this.lancamentosService.pesquisar(this.filtro)
-      .then(resultado => {
-        this.totalRegistros = resultado.total;
+      .then((resultado: any) => {
         this.lancamentos = resultado.lancamentos;
-      });
+        this.totalRegistros = resultado.total ;
+      })
+      .catch(erro => this.errorHandler.handle(erro));
   }
 
   aoMudarPagina(event: LazyLoadEvent) {
-    const pagina = event.first / event.rows;
-    this.pesquisar(pagina);
+      const pagina = event!.first! / event!.rows!;
+      this.pesquisar(pagina);
+  }
+
+  confirmarExclusao(lancamento: any): void {
+    this.confirmationService.confirm({
+      message: 'Tem certeza que deseja excluir?',
+      accept: () => {
+          this.excluir(lancamento);
+      }
+    });
+  }
+
+  excluir(lancamento: any) {
+
+    this.lancamentosService.excluir(lancamento.codigo)
+      .then(() => {
+        if (this.grid.first === 0) {
+          this.pesquisar();
+        } else {
+          this.grid.reset();
+        }
+
+        this.messageService.add({ severity: 'success', detail: 'Lançamento excluído com sucesso!' })
+      })
+  }
+
+  naoTemPermissao(permissao: string) {
+    return !this.auth.temPermissao(permissao);
   }
 }
