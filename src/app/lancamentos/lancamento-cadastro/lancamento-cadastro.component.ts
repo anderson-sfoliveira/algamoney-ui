@@ -5,7 +5,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { ErrorHandlerService } from 'src/app/core/error-handler.service';
 import { PessoaService } from 'src/app/pessoas/pessoa.service';
-import { CategoriaService } from './../../categorias/categoria.service';
+import { CategoriasService } from './../../categorias/categorias.service';
 import { LancamentoService } from '../lancamento.service';
 import { MessageService } from 'primeng/api';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -16,7 +16,7 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./lancamento-cadastro.component.css']
 })
 export class LancamentoCadastroComponent implements OnInit {
-  
+
   lancamento: Lancamento = new Lancamento();
 
   categorias: any[] = [];
@@ -29,9 +29,9 @@ export class LancamentoCadastroComponent implements OnInit {
 
 
     constructor(
-    private categoriaService: CategoriaService,
+    private categoriasService: CategoriasService,
     private pessoaService: PessoaService,
-    private lancamentoService: LancamentoService,    
+    private lancamentoService: LancamentoService,
     private messageService: MessageService,
     private errorHandler: ErrorHandlerService,
     private route: ActivatedRoute,
@@ -54,7 +54,7 @@ export class LancamentoCadastroComponent implements OnInit {
   get editando() {
     return Boolean(this.lancamento.codigo)
   }
-  
+
   carregarLancamento(codigo: number) {
     this.lancamentoService.buscarPorCodigo(codigo)
       .then(lancamento => {
@@ -64,7 +64,7 @@ export class LancamentoCadastroComponent implements OnInit {
   }
 
   carregarCategorias() {
-    return this.categoriaService.listarTodas()
+    return this.categoriasService.listarTodas()
       .then(categorias => {
         this.categorias = categorias
           .map((c:any) => ({ label: c.nome, value: c.codigo }));
