@@ -23,7 +23,7 @@ export class CategoriasService {
 
   pesquisar(filtro: CategoriaFiltro): Promise<any> {
     let params = new HttpParams();
-    
+
     params = params.set('page', filtro.pagina.toString());
     params = params.set('size', filtro.itensPorPagina.toString());
 
@@ -32,7 +32,7 @@ export class CategoriasService {
       //Precisamos atribuir o resultado do método "set" novamente à variável "params"
       params = params.set('descricao', filtro.descricao);
     }
-    
+
     return this.http.get(`${this.categoriasURL}?filtrar`, { params })
       .toPromise()
       .then(response => {
@@ -63,7 +63,7 @@ export class CategoriasService {
   }
 
   atualizar(categoria: Categoria): Promise<Categoria> {
-    return this.http.put<Categoria>(`${this.categoriasURL}/${categoria.categoriaId}`, categoria)
+    return this.http.put<Categoria>(`${this.categoriasURL}/${categoria.codigo}`, categoria)
       .toPromise();
   }
 
