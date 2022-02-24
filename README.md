@@ -37,10 +37,10 @@ Além disto é bom ter um editor para trabalhar com o código como [VSCode](http
 ```bash
 
 # Clone este repositório
-$ git clone https://github.com/anderson-sfoliveira/artisapp-ui.git
+$ git clone https://github.com/anderson-sfoliveira/algamoney-ui.git
 
 # Acesse a pasta do projeto no seu terminal/cmd
-$ cd artisapp-ui
+$ cd algamoney-ui
 
 # Instale as dependências
 $ npm install
@@ -61,7 +61,7 @@ As seguintes ferramentas foram usadas na construção do projeto:
 -   **[Angular](https://angular.io/)**
 -   **[PrimeNG](https://www.primefaces.org/primeng/showcase/#/)**
 
-> Veja o arquivo  [package.json](https://github.com/anderson-sfoliveira/artisapp-ui/blob/master/package.json)
+> Veja o arquivo  [package.json](https://github.com/anderson-sfoliveira/algamoney-ui/blob/master/package.json)
 
 ---
 
