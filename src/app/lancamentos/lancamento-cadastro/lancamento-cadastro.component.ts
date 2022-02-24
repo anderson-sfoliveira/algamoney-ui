@@ -6,9 +6,9 @@ import { Component, OnInit } from '@angular/core';
 import { ErrorHandlerService } from 'src/app/core/error-handler.service';
 import { PessoaService } from 'src/app/pessoas/pessoa.service';
 import { CategoriasService } from './../../categorias/categorias.service';
-import { LancamentoService } from '../lancamento.service';
 import { MessageService } from 'primeng/api';
 import { ActivatedRoute, Router } from '@angular/router';
+import { LancamentosService } from '../lancamentos.service';
 
 @Component({
   selector: 'app-lancamento-cadastro',
@@ -31,7 +31,7 @@ export class LancamentoCadastroComponent implements OnInit {
     constructor(
     private categoriasService: CategoriasService,
     private pessoaService: PessoaService,
-    private lancamentoService: LancamentoService,
+    private lancamentosService: LancamentosService,
     private messageService: MessageService,
     private errorHandler: ErrorHandlerService,
     private route: ActivatedRoute,
@@ -56,7 +56,7 @@ export class LancamentoCadastroComponent implements OnInit {
   }
 
   carregarLancamento(codigo: number) {
-    this.lancamentoService.buscarPorCodigo(codigo)
+    this.lancamentosService.buscarPorCodigo(codigo)
       .then(lancamento => {
         this.lancamento = lancamento;
       },
@@ -90,7 +90,7 @@ export class LancamentoCadastroComponent implements OnInit {
   }
 
   atualizarLancamento(form: NgForm) {
-    this.lancamentoService.atualizar(this.lancamento)
+    this.lancamentosService.atualizar(this.lancamento)
       .then((lancamento:Lancamento) => {
           this.lancamento = lancamento;
           this.messageService.add({ severity: 'success', detail: 'Lançamento alterado com sucesso!' });
@@ -100,7 +100,7 @@ export class LancamentoCadastroComponent implements OnInit {
   }
 
   adicionarLancamento(form: NgForm) {
-    this.lancamentoService.adicionar(this.lancamento)
+    this.lancamentosService.adicionar(this.lancamento)
       .then(lancamentoAdicionado => {
         this.messageService.add({ severity: 'success', detail: 'Lançamento adicionado com sucesso!' });
 
