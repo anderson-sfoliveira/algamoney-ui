@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
 
 import { InputTextModule } from 'primeng/inputtext';
 import { ButtonModule } from 'primeng/button';
@@ -13,11 +14,13 @@ import { DropdownModule } from 'primeng/dropdown';
 import { InputNumberModule } from 'primeng/inputnumber';
 import { CheckboxModule } from 'primeng/checkbox';
 import { InputMaskModule } from 'primeng/inputmask';
+import { MultiSelectModule } from 'primeng/multiselect';
+import { CurrencyMaskModule } from 'ng2-currency-mask';
 
 import { SharedModule } from '../shared/shared.module';
-
 import { LancamentosPesquisaComponent } from './lancamentos-pesquisa/lancamentos-pesquisa.component';
 import { LancamentosCadastroComponent } from './lancamentos-cadastro/lancamentos-cadastro.component';
+import { LancamentosRoutingModule } from './lancamentos-routing.module';
 
 @NgModule({
   declarations: [
@@ -27,6 +30,7 @@ import { LancamentosCadastroComponent } from './lancamentos-cadastro/lancamentos
   imports: [
     CommonModule,
     FormsModule,
+    RouterModule,
 
     InputTextModule,
     ButtonModule,
@@ -40,7 +44,12 @@ import { LancamentosCadastroComponent } from './lancamentos-cadastro/lancamentos
     CheckboxModule,
     InputMaskModule,
 
-    SharedModule
+    MultiSelectModule,
+
+    CurrencyMaskModule,
+
+    SharedModule,
+    LancamentosRoutingModule
   ],
   exports: [
     LancamentosPesquisaComponent,
