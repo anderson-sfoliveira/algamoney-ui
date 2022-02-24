@@ -66,7 +66,6 @@ export class LancamentoCadastroComponent implements OnInit {
   carregarCategorias() {
     return this.categoriasService.listarTodas()
       .then(categorias => {
-        console.log(categorias);
         this.categorias = categorias
           .map((c:any) => ({ label: c.nome, value: c.codigo }));
       })
@@ -76,7 +75,6 @@ export class LancamentoCadastroComponent implements OnInit {
   carregarPessoas() {
     this.pessoaService.listarTodas()
       .then(pessoas => {
-        console.log(pessoas);
         this.pessoas = pessoas
           .map((p:any) => ({ label: p.nome, value: p.codigo }));
       })

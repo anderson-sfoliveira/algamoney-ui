@@ -72,7 +72,12 @@ export class LancamentosService {
 
   atualizar(lancamento: Lancamento): Promise<Lancamento> {
     return this.http.put<Lancamento>(`${this.lancamentosURL}/${lancamento.codigo}`, lancamento)
-      .toPromise();
+      .toPromise()
+      .then((response:any) => {
+        this.converterStringsParaDatas([response]);
+
+        return response;
+      });
   }
 
   buscarPorCodigo(codigo: number): Promise<Lancamento> {
