@@ -18,7 +18,7 @@ export class AuthService {
     private jwtHelperService: JwtHelperService
   ) {
     this.carregarToken();
-    
+
     this.oauthTokenURL = `${environment.apiURL}/oauth/token`;
     this.tokensRenokeUrl = `${environment.apiURL}/tokens/revoke`;
   }
@@ -98,7 +98,7 @@ export class AuthService {
   }
 
   isAccessTokenInvalido() {
-    console.log('Validando access token.');
+    // console.log('Validando access token.');
     const token = localStorage.getItem('token');
 
     return !token || this.jwtHelperService.isTokenExpired(token);

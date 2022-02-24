@@ -22,8 +22,8 @@ export class AuthGuard implements CanActivate {
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
 
-    console.log('Guarda das rotas validando o token...');
-    console.log(route.data.roles);
+    // console.log('Guarda das rotas validando o token...');
+    // console.log(route.data.roles);
 
     if (this.auth.isAccessTokenInvalido()) {
       console.log('Navegação com access token inválido. Obtendo novo token...');
