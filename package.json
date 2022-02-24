@@ -37,7 +37,7 @@
     "karma-jasmine": "~4.0.1",
     "karma-jasmine-html-reporter": "^1.6.0",
     "moment": "^2.29.1",
-    "ng2-currency-mask": "^13.0.3",
+    "ng2-currency-mask": "^11.0.0",
     "ngx-currency": "^2.5.2",
     "primeflex": "^2.0.0",
     "primeicons": "^4.1.0",
