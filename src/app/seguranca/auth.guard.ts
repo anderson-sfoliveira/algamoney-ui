@@ -26,7 +26,7 @@ export class AuthGuard implements CanActivate {
     // console.log(route.data.roles);
 
     if (this.auth.isAccessTokenInvalido()) {
-      console.log('Navegação com access token inválido. Obtendo novo token...');
+      // console.log('Navegação com access token inválido. Obtendo novo token...');
 
       return this.auth.obterNovoAccessToken()
         .then(() => {
