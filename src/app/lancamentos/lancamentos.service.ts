@@ -51,6 +51,7 @@ export class LancamentosService {
     return this.http.get(`${this.lancamentosURL}?resumo`, { params })
       .toPromise()
       .then(response => {
+        this.converterStringsParaDatas([response['content']]);
         const lancamentos = response['content']
         const resultado = {
           lancamentos,
@@ -94,10 +95,10 @@ export class LancamentosService {
 
     for (const lancamento of lancamentos) {
 
-      lancamento.dataVencimento = new Date(lancamento.dataVencimento);
+      lancamento.dataVencimento = new Date(lancamento.dataVencimento + "T00:00:00.000");
 
       if (lancamento.dataPagamento) {
-        lancamento.dataPagamento = new Date(lancamento.dataPagamento);
+        lancamento.dataPagamento = new Date(lancamento.dataPagamento + "T00:00:00.000");
       }
     }
   }
